@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Watchlist — CineStream</title>
+  <link rel="stylesheet" href="/static/fonts/fonts.css" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <meta name="csrf-token" content="{{ csrf_token() if csrf_token else '' }}" />
+  <script src="/static/vendor/gsap.min.js"></script>
+  <script src="/static/vendor/Sortable.min.js"></script>
+  <script src="/static/vendor/chart.umd.min.js"></script>
+</head>
+<body class="watchlist-page-body">
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="/">
+        <span class="logo-icon">&#127916;</span>
+        <span class="logo-text">CineStream</span>
+      </a>
+
+      <div class="nav-links-wrap">
+        <ul class="nav-links">
+          <li><a href="/">&larr; Back to Movies</a></li>
+          <li><a href="/#streaming">Browse</a></li>
+          <li>
+            <a href="/watchlist" class="nav-watchlist-link active" aria-label="My Watchlist">
+              <span class="nav-watchlist-icon">&#128278;</span>
+              <span class="nav-watchlist-text">Watchlist</span>
+              <span class="nav-watchlist-badge" id="navWatchlistBadge">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="watchlist-main">
+    <div class="container watchlist-container">
+      <!-- Page Header -->
+      <header class="watchlist-header">
+        <div class="watchlist-header-left">
+          <p class="section-eyebrow">Your Curated Collection</p>
+          <h1 class="watchlist-title">
+            My Watchlist <span class="watchlist-badge-count" id="watchlistCount">0</span>
+          </h1>
+          <p class="watchlist-desc">
+            Movies and shows you have saved. Mark items as watched, rate them, and explore cluster-based recommendations.
+          </p>
+        </div>
+        <div class="watchlist-header-right">
+          <div class="watchlist-search-wrap">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="watchlistSearchInput" placeholder="Filter your saved items..." autocomplete="off" />
+          </div>
+          <div class="watchlist-action-buttons">
+            <button class="btn-wl-action" id="exportWatchlistBtn" title="Export Watchlist to JSON file">
+              <span>&#128190;</span> Export JSON
+            </button>
+            <label class="btn-wl-action" id="importWatchlistLabel" title="Import Watchlist from JSON file">
+              <span>&#128194;</span> Import JSON
+              <input type="file" id="importWatchlistFile" accept=".json,application/json" style="display:none;" />
+            </label>
+            <button class="btn-wl-danger" id="clearWatchlistBtn" title="Clear all items from your watchlist">
+              <span>&#128465;</span> Clear All
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Filter & Sort Toolbar -->
+      <section class="watchlist-toolbar">
+        <div class="toolbar-left">
+          <!-- Saved vs Watched Tabs -->
+          <div class="status-tab-group" role="tablist">
+            <button class="status-tab active" id="tabSaved" data-status="saved">Saved (<span id="countSaved">0</span>)</button>
+            <button class="status-tab" id="tabWatched" data-status="watched">&#10003; Watched (<span id="countWatched">0</span>)</button>
+            <button class="status-tab" id="tabAll" data-status="all">All (<span id="countAll">0</span>)</button>
+          </div>
+
+          <!-- Media Type Filter Pills -->
+          <div class="media-pills-group" id="mediaPills">
+            <button class="media-pill active" data-type="all">All</button>
+            <button class="media-pill" data-type="movie">Movies</button>
+            <button class="media-pill" data-type="tv">TV Shows</button>
+            <button class="media-pill" data-type="animation">Animation</button>
+            <button class="media-pill" data-type="anime">Anime</button>
+          </div>
+        </div>
+
+        <div class="toolbar-right">
+          <!-- Language Select -->
+          <div class="wl-select-wrap">
+            <label for="watchlistLangSelect">&#127760; Language:</label>
+            <select id="watchlistLangSelect" class="pill-select">
+              <option value="all">All Languages</option>
+              <option value="en">English</option>
+              <option value="hi">Hindi</option>
+              <option value="kn">Kannada</option>
+              <option value="ta">Tamil</option>
+              <option value="te">Telugu</option>
+              <option value="ml">Malayalam</option>
+              <option value="ja">Japanese</option>
+            </select>
+          </div>
+
+          <!-- Sort Select -->
+          <div class="wl-select-wrap">
+            <label for="watchlistSortSelect">&#8645; Sort By:</label>
+            <select id="watchlistSortSelect" class="pill-select">
+              <option value="recently_added">Recently Added</option>
+              <option value="title_asc">Title (A &ndash; Z)</option>
+              <option value="year_desc">Year (Newest First)</option>
+              <option value="rating_desc">Rating (Highest First)</option>
+              <option value="custom">Custom Order (Drag &amp; Drop)</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Active Drag Notice -->
+      <div class="drag-hint-banner" id="dragHintBanner" style="display:none;">
+        <span>&#8693; Custom ordering active: Drag and drop cards to rearrange your watchlist order.</span>
+      </div>
+
+      <!-- Poster Grid -->
+      <section class="watchlist-grid-section">
+        <div class="watchlist-grid" id="watchlistGrid">
+          <!-- Populated by static/js/watchlist.js -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="watchlist-empty-state" id="watchlistEmptyState" style="display:none;">
+          <div class="empty-icon">&#128278;</div>
+          <h2>Your watchlist is currently empty</h2>
+          <p>Explore thousands of movies across Hollywood, Sandalwood, Bollywood and beyond, and click the bookmark button (+) to save them here.</p>
+          <a href="/#streaming" class="btn-primary">Browse &amp; Add Movies</a>
+        </div>
+      </section>
+
+      <!-- ML Recommendations Section -->
+      <section class="watchlist-recs-section" id="watchlistRecsSection" style="display:none;">
+        <div class="recs-section-header">
+          <div>
+            <p class="section-eyebrow">ML Taste Centroid &middot; Cosine Similarity</p>
+            <h2 class="section-title">&#10024; Recommended From Your Watchlist</h2>
+            <p class="section-sub">
+              Calculated using the average feature vector of your saved titles to match themes, genres, and styles you love.
+            </p>
+          </div>
+        </div>
+        <div class="watchlist-recs-row" id="watchlistRecsRow">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+      <!-- ML Cluster Distribution Chart -->
+      <section class="watchlist-cluster-section" id="watchlistClusterSection" style="display:none;">
+        <div class="cluster-section-header">
+          <div>
+            <p class="section-eyebrow">Taste Analysis</p>
+            <h2 class="section-title">&#128202; Your Watchlist by Cluster</h2>
+            <p class="section-sub">Visualizing how your saved movies distribute across CineStream's K-Means clusters.</p>
+          </div>
+        </div>
+        <div class="cluster-chart-container">
+          <div class="chart-canvas-wrap">
+            <canvas id="watchlistClusterChart"></canvas>
+          </div>
+          <div class="cluster-chart-legend" id="clusterChartLegend"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Trailer Player Modal (Reusing single PromoPlayer) -->
+  <div class="modal-overlay" id="watchlistTrailerModal" role="dialog" aria-modal="true" aria-label="Watch Trailer">
+    <div class="modal-panel trailer-modal-panel">
+      <button class="modal-close" id="closeWatchlistTrailer" aria-label="Close trailer">&times;</button>
+      <h3 class="trailer-modal-title" id="trailerModalTitle">Trailer</h3>
+      <div class="trailer-modal-video-wrap">
+        <div id="promo-player"></div>
+      </div>
+      <div class="trailer-modal-meta" id="trailerModalMeta"></div>
+    </div>
+  </div>
+
+  <!-- Clear All Confirmation Modal -->
+  <div class="modal-overlay" id="clearConfirmModal" role="dialog" aria-modal="true" aria-label="Confirm Clear">
+    <div class="modal-panel confirm-modal-panel">
+      <h3>Clear your entire Watchlist?</h3>
+      <p>This will remove all saved and watched movies from your list. This action cannot be reversed.</p>
+      <div class="confirm-modal-actions">
+        <button class="btn-outline" id="cancelClearBtn">Cancel</button>
+        <button class="btn-wl-danger" id="confirmClearBtn">Yes, Clear All</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Scripts -->
+  <script src="/static/js/promo-player.js"></script>
+  <script src="/static/js/watchlist.js"></script>
+</body>
+</html>

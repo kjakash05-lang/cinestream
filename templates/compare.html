@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compare Movies — CineStream</title>
+  <link rel="stylesheet" href="/static/fonts/fonts.css" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <meta name="csrf-token" content="{{ csrf_token() if csrf_token else '' }}" />
+</head>
+<body class="compare-page-body">
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="/">
+        <span class="logo-icon">&#127916;</span>
+        <span class="logo-text">CineStream</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">&larr; Home</a></li>
+        <li><a href="/#ramayanaSpotlightRecs">Epics</a></li>
+        <li><a href="/#streaming">Browse</a></li>
+        <li>
+          <a href="/watchlist" class="nav-watchlist-link" aria-label="My Watchlist">
+            <span class="nav-watchlist-icon">&#128278;</span>
+            <span class="nav-watchlist-text">Watchlist</span>
+          </a>
+        </li>
+        <li class="nav-dropdown-item">
+          <button class="nav-dropdown-btn" id="navMoreBtn" aria-haspopup="true" aria-expanded="false">
+            <span>Explore More</span> <span class="nav-caret">&#9662;</span>
+          </button>
+          <div class="nav-dropdown-menu" id="navMoreMenu">
+            <a href="/mood" class="dropdown-link-item"><span class="item-icon">&#127917;</span> Mood Recommendations</a>
+            <a href="/hidden-gems" class="dropdown-link-item"><span class="item-icon">&#128142;</span> Hidden Gems</a>
+            <a href="/compare" class="dropdown-link-item"><span class="item-icon">&#9878;</span> Compare Movies</a>
+            <a href="/insights" class="dropdown-link-item"><span class="item-icon">&#128202;</span> Model Insights</a>
+            <a href="/analytics" class="dropdown-link-item"><span class="item-icon">&#128200;</span> Taste Analytics</a>
+          </div>
+        </li>
+        <li class="nav-user-item">
+          <a href="/profile" class="nav-auth-btn">👤 Profile</a>
+        </li>
+      </ul>
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <main class="page-main-container">
+    <div class="container" style="max-width: 1200px; padding-top: 100px; padding-bottom: 60px;">
+      <header class="section-header" style="margin-bottom: 32px;">
+        <p class="section-eyebrow">&#9878; Multi-Modal Comparison</p>
+        <h1 class="section-title">Movie vs Movie Face-Off</h1>
+        <p class="section-sub">Compare any two titles side-by-side across TMDB scores, ML cluster profiles, runtime, cast, director, and themes.</p>
+      </header>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px;">
+        <div style="background: #141418; padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #f9e27d; margin-bottom: 8px;">MOVIE 1</label>
+          <input type="text" id="m1Search" placeholder="Search Movie 1 (e.g. Ramayana, Kantara)..." style="width: 100%; box-sizing: border-box; background: #1e1e24; color: white; border: 1px solid #333; padding: 10px 14px; border-radius: 8px;" />
+          <div id="m1Results" style="position: absolute; background: #1a1a1f; width: 340px; border-radius: 8px; border: 1px solid #333; display: none; z-index: 100; max-height: 250px; overflow-y: auto;"></div>
+        </div>
+
+        <div style="background: #141418; padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #f9e27d; margin-bottom: 8px;">MOVIE 2</label>
+          <input type="text" id="m2Search" placeholder="Search Movie 2 (e.g. Baahubali, Inception)..." style="width: 100%; box-sizing: border-box; background: #1e1e24; color: white; border: 1px solid #333; padding: 10px 14px; border-radius: 8px;" />
+          <div id="m2Results" style="position: absolute; background: #1a1a1f; width: 340px; border-radius: 8px; border: 1px solid #333; display: none; z-index: 100; max-height: 250px; overflow-y: auto;"></div>
+        </div>
+      </div>
+
+      <div id="compareContainer" style="background: #141418; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); overflow: hidden;">
+        <div style="padding: 40px; text-align: center; color: #888;">Select two movies above to see full comparative breakdown.</div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    
+  document.getElementById("navMoreBtn")?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.getElementById("navMoreMenu")?.classList.toggle("show");
+  });
+  document.addEventListener("click", () => document.getElementById("navMoreMenu")?.classList.remove("show"));
+  document.getElementById("mobileToggle")?.addEventListener("click", () => {
+    document.getElementById("navLinks")?.classList.toggle("open");
+  });
+
+    let selectedM1 = 656908;
+    let selectedM2 = 858485;
+
+    async function fetchComparison() {
+      const container = document.getElementById("compareContainer");
+      try {
+        const res = await fetch(`/api/compare?m1=${selectedM1}&m2=${selectedM2}`);
+        const data = await res.json();
+        const m1 = data.movie1;
+        const m2 = data.movie2;
+        if (!m1 || !m2) return;
+
+        container.innerHTML = `
+          <div style="display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid rgba(255,255,255,0.08);">
+            <div style="padding: 24px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08);">
+              <img src="${m1.poster_url}" style="width: 160px; height: 230px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.6);" />
+              <h2 style="font-size: 1.3rem; margin: 0 0 6px 0; color: #f9e27d;">${m1.title_en}</h2>
+              <div style="color: #aaa; font-size: 0.9rem;">${m1.year || ''} &middot; ${m1.language_name || 'Cinema'}</div>
+            </div>
+            <div style="padding: 24px; text-align: center;">
+              <img src="${m2.poster_url}" style="width: 160px; height: 230px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.6);" />
+              <h2 style="font-size: 1.3rem; margin: 0 0 6px 0; color: #f9e27d;">${m2.title_en}</h2>
+              <div style="color: #aaa; font-size: 0.9rem;">${m2.year || ''} &middot; ${m2.language_name || 'Cinema'}</div>
+            </div>
+          </div>
+
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02);">
+              <td style="padding: 14px 24px; color: #888; width: 50%; font-weight: 600;">★ TMDB Score</td>
+              <td style="padding: 14px 24px; color: #888; width: 50%; font-weight: 600;">★ TMDB Score</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <td style="padding: 14px 24px; color: #f9e27d; font-size: 1.1rem; font-weight: 700;">★ ${m1.avgRating}/10</td>
+              <td style="padding: 14px 24px; color: #f9e27d; font-size: 1.1rem; font-weight: 700;">★ ${m2.avgRating}/10</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02);">
+              <td style="padding: 14px 24px; color: #888;">Cluster Identity</td>
+              <td style="padding: 14px 24px; color: #888;">Cluster Identity</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <td style="padding: 14px 24px; color: white;">${m1.clusterName || 'Cinema'}</td>
+              <td style="padding: 14px 24px; color: white;">${m2.clusterName || 'Cinema'}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02);">
+              <td style="padding: 14px 24px; color: #888;">Genres</td>
+              <td style="padding: 14px 24px; color: #888;">Genres</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <td style="padding: 14px 24px; color: #ccc;">${m1.genres}</td>
+              <td style="padding: 14px 24px; color: #ccc;">${m2.genres}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02);">
+              <td style="padding: 14px 24px; color: #888;">Director & Cast</td>
+              <td style="padding: 14px 24px; color: #888;">Director & Cast</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <td style="padding: 14px 24px; color: #aaa;">${m1.director || 'N/A'}<br><small>${m1.cast || ''}</small></td>
+              <td style="padding: 14px 24px; color: #aaa;">${m2.director || 'N/A'}<br><small>${m2.cast || ''}</small></td>
+            </tr>
+            <tr>
+              <td style="padding: 16px 24px; color: #aaa; line-height: 1.5; font-size: 0.85rem;" colspan="2">
+                <div style="font-weight: 600; color: #f9e27d; margin-bottom: 4px;">Cosine Similarity:</div>
+                ${data.cosine_similarity_pct}% affinity match based on multi-modal feature blocks.
+              </td>
+            </tr>
+          </table>
+        `;
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    fetchComparison();
+  </script>
+</body>
+</html>

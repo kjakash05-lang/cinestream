@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mood Recommendations — CineStream</title>
+  <link rel="stylesheet" href="/static/fonts/fonts.css" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <meta name="csrf-token" content="{{ csrf_token() if csrf_token else '' }}" />
+</head>
+<body class="mood-page-body">
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="/">
+        <span class="logo-icon">&#127916;</span>
+        <span class="logo-text">CineStream</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">&larr; Home</a></li>
+        <li><a href="/#ramayanaSpotlightRecs">Epics</a></li>
+        <li><a href="/#streaming">Browse</a></li>
+        <li>
+          <a href="/watchlist" class="nav-watchlist-link" aria-label="My Watchlist">
+            <span class="nav-watchlist-icon">&#128278;</span>
+            <span class="nav-watchlist-text">Watchlist</span>
+          </a>
+        </li>
+        <li class="nav-dropdown-item">
+          <button class="nav-dropdown-btn" id="navMoreBtn" aria-haspopup="true" aria-expanded="false">
+            <span>Explore More</span> <span class="nav-caret">&#9662;</span>
+          </button>
+          <div class="nav-dropdown-menu" id="navMoreMenu">
+            <a href="/mood" class="dropdown-link-item"><span class="item-icon">&#127917;</span> Mood Recommendations</a>
+            <a href="/hidden-gems" class="dropdown-link-item"><span class="item-icon">&#128142;</span> Hidden Gems</a>
+            <a href="/compare" class="dropdown-link-item"><span class="item-icon">&#9878;</span> Compare Movies</a>
+            <a href="/insights" class="dropdown-link-item"><span class="item-icon">&#128202;</span> Model Insights</a>
+            <a href="/analytics" class="dropdown-link-item"><span class="item-icon">&#128200;</span> Taste Analytics</a>
+          </div>
+        </li>
+        <li class="nav-user-item">
+          <a href="/profile" class="nav-auth-btn">👤 Profile</a>
+        </li>
+      </ul>
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <main class="page-main-container">
+    <div class="container" style="max-width: 1300px; padding-top: 100px; padding-bottom: 60px;">
+      <header class="section-header" style="margin-bottom: 32px;">
+        <p class="section-eyebrow">Personalised Vibe Discovery</p>
+        <h1 class="section-title">What mood are you in tonight?</h1>
+        <p class="section-sub">Select a mood tile to instantly recalibrate your recommendations using affective genre vectors and cluster fingerprints.</p>
+      </header>
+
+      <div class="mood-selector-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 36px;">
+        <button class="mood-tile-btn active" data-mood="adrenaline" style="background: linear-gradient(135deg, rgba(229,9,20,0.2), rgba(15,15,18,0.9)); border: 1px solid rgba(229,9,20,0.4); border-radius: 12px; padding: 20px 16px; text-align: left; cursor: pointer; color: white;">
+          <div style="font-size: 2rem; margin-bottom: 8px;">⚡</div>
+          <div style="font-weight: 700; font-size: 1.1rem; color: #f9e27d;">Adrenaline Rush</div>
+          <div style="font-size: 0.8rem; color: #aaa; margin-top: 4px;">Action, Thrillers & High Stakes</div>
+        </button>
+
+        <button class="mood-tile-btn" data-mood="mind-bending" style="background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(15,15,18,0.9)); border: 1px solid rgba(139,92,246,0.3); border-radius: 12px; padding: 20px 16px; text-align: left; cursor: pointer; color: white;">
+          <div style="font-size: 2rem; margin-bottom: 8px;">🧠</div>
+          <div style="font-weight: 700; font-size: 1.1rem; color: #f9e27d;">Mind-Bending</div>
+          <div style="font-size: 0.8rem; color: #aaa; margin-top: 4px;">Sci-Fi, Mystery & Plot Twists</div>
+        </button>
+
+        <button class="mood-tile-btn" data-mood="feel-good" style="background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(15,15,18,0.9)); border: 1px solid rgba(245,158,11,0.3); border-radius: 12px; padding: 20px 16px; text-align: left; cursor: pointer; color: white;">
+          <div style="font-size: 2rem; margin-bottom: 8px;">😊</div>
+          <div style="font-weight: 700; font-size: 1.1rem; color: #f9e27d;">Feel-Good</div>
+          <div style="font-size: 0.8rem; color: #aaa; margin-top: 4px;">Comedy, Warmth & Romance</div>
+        </button>
+
+        <button class="mood-tile-btn" data-mood="epic" style="background: linear-gradient(135deg, rgba(249,226,125,0.2), rgba(15,15,18,0.9)); border: 1px solid rgba(249,226,125,0.4); border-radius: 12px; padding: 20px 16px; text-align: left; cursor: pointer; color: white;">
+          <div style="font-size: 2rem; margin-bottom: 8px;">👑</div>
+          <div style="font-weight: 700; font-size: 1.1rem; color: #f9e27d;">Epic & Mythic</div>
+          <div style="font-size: 0.8rem; color: #aaa; margin-top: 4px;">Grand Fantasy, Folklore & Legends</div>
+        </button>
+
+        <button class="mood-tile-btn" data-mood="emotional" style="background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(15,15,18,0.9)); border: 1px solid rgba(59,130,246,0.3); border-radius: 12px; padding: 20px 16px; text-align: left; cursor: pointer; color: white;">
+          <div style="font-size: 2rem; margin-bottom: 8px;">🎭</div>
+          <div style="font-weight: 700; font-size: 1.1rem; color: #f9e27d;">Deep & Emotional</div>
+          <div style="font-size: 0.8rem; color: #aaa; margin-top: 4px;">Human Drama & Powerful Stories</div>
+        </button>
+
+        <button class="mood-tile-btn" data-mood="chills" style="background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(15,15,18,0.9)); border: 1px solid rgba(16,185,129,0.3); border-radius: 12px; padding: 20px 16px; text-align: left; cursor: pointer; color: white;">
+          <div style="font-size: 2rem; margin-bottom: 8px;">👻</div>
+          <div style="font-weight: 700; font-size: 1.1rem; color: #f9e27d;">Spine-Chilling</div>
+          <div style="font-size: 0.8rem; color: #aaa; margin-top: 4px;">Horror, Dark Suspense & Monsters</div>
+        </button>
+      </div>
+
+      <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 24px; padding: 14px 20px; background: #141418; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06);">
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <span style="font-size: 0.85rem; color: #888;">Language:</span>
+          <select id="moodLangSelect" style="background: #1e1e24; color: white; border: 1px solid #333; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem;">
+            <option value="all">All Languages</option>
+            <option value="en">English (Hollywood)</option>
+            <option value="hi">Hindi (Bollywood)</option>
+            <option value="kn">Kannada (Sandalwood)</option>
+            <option value="ta">Tamil (Kollywood)</option>
+            <option value="te">Telugu (Tollywood)</option>
+            <option value="ml">Malayalam (Mollywood)</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="moodMoviesGrid" class="poster-grid" style="min-height: 300px;">
+        <div class="skeleton-card"></div><div class="skeleton-card"></div>
+        <div class="skeleton-card"></div><div class="skeleton-card"></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    
+  document.getElementById("navMoreBtn")?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.getElementById("navMoreMenu")?.classList.toggle("show");
+  });
+  document.addEventListener("click", () => document.getElementById("navMoreMenu")?.classList.remove("show"));
+  document.getElementById("mobileToggle")?.addEventListener("click", () => {
+    document.getElementById("navLinks")?.classList.toggle("open");
+  });
+
+    let currentMood = "adrenaline";
+    async function loadMoodMovies() {
+      const grid = document.getElementById("moodMoviesGrid");
+      grid.innerHTML = '<div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div>';
+      const lang = document.getElementById("moodLangSelect")?.value || "all";
+      try {
+        const res = await fetch(`/api/mood?mood=${currentMood}&lang=${lang}`);
+        const data = await res.json();
+        const movies = data.movies || [];
+        grid.innerHTML = "";
+        if (!movies.length) {
+          grid.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center; color: #888;">No movies matching this mood filter.</div>';
+          return;
+        }
+        movies.forEach(m => {
+          const card = document.createElement("div");
+          card.className = "poster-card";
+          card.innerHTML = `
+            <div class="poster-wrap">
+              <img src="${m.poster_url || m.poster_large_url}" alt="${m.title_en}" loading="lazy" class="poster-img" onerror="this.src='https://image.tmdb.org/t/p/w500/vBQ7wks68OhJKlb3RnXSl2yXBXK.jpg'" />
+              <span class="poster-cluster-badge">${m.clusterName || 'Cinema'}</span>
+            </div>
+            <div class="poster-info">
+              <div class="poster-title" title="${m.title_en}">${m.title_en}</div>
+              <div class="poster-meta">${m.year || ''} &middot; ${m.language_name || 'English'} &middot; ★ ${m.avgRating}/10</div>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      } catch (e) {
+        grid.innerHTML = '<div style="color: #e50914; padding: 20px;">Failed loading mood movies.</div>';
+      }
+    }
+
+    document.querySelectorAll(".mood-tile-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".mood-tile-btn").forEach(b => {
+          b.classList.remove("active");
+          b.style.borderColor = "rgba(255,255,255,0.1)";
+        });
+        btn.classList.add("active");
+        btn.style.borderColor = "#f9e27d";
+        currentMood = btn.dataset.mood;
+        loadMoodMovies();
+      });
+    });
+
+    document.getElementById("moodLangSelect")?.addEventListener("change", loadMoodMovies);
+    loadMoodMovies();
+  </script>
+</body>
+</html>

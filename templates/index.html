@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineStream — Smart Movie Recommendations</title>
+  <link rel="stylesheet" href="/static/fonts/fonts.css" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <meta name="csrf-token" content="{{ csrf_token() if csrf_token else '' }}" />
+  <script src="/static/vendor/gsap.min.js"></script>
+  <script src="/static/vendor/ScrollTrigger.min.js"></script>
+  <script src="/static/vendor/Flip.min.js"></script>
+  <script src="/static/vendor/chart.umd.min.js"></script>
+</head>
+<body>
+  <!-- FULL-VIEWPORT ANIMATED OPENING SCREEN (Shown FIRST when website launches) -->
+  <aside class="opening-screen" id="openingScreen" aria-label="Welcome to CineStream">
+    <canvas id="openingParticleCanvas" class="opening-particle-canvas"></canvas>
+    <div class="opening-content">
+      <div class="opening-eyebrow" id="openingEyebrow">
+        <span class="opening-sparkle">&#10022;</span> AI-POWERED &bull; PERSONALISED &bull; FREE
+      </div>
+      <h1 class="opening-headline" id="openingHeadline">
+        <span class="word-mask"><span class="reveal-word">Discover</span></span>
+        <span class="word-mask"><span class="reveal-word">the</span></span>
+        <span class="word-mask"><span class="reveal-word">Movie</span></span>
+        <span class="word-mask"><span class="reveal-word">Streaming</span></span>
+        <span class="word-mask"><span class="reveal-word">Experience</span></span>
+        <span class="word-mask"><span class="reveal-word">with</span></span>
+        <span class="word-mask brand-glow-mask"><span class="reveal-brand">CineStream</span></span>
+      </h1>
+      <p class="opening-subtitle" id="openingSubtitle">
+        Powered by K-Means clustering &amp; Random Forest regression &mdash; two ML algorithms working together to find your next obsession.
+      </p>
+      <div class="opening-cta-group" id="openingCtaGroup">
+        <button class="btn-opening-primary" id="openingGetStarted" aria-label="Get started with CineStream">Get started</button>
+        <button class="btn-opening-outline" id="openingForYou" aria-label="Go to Personalised recommendations">For you</button>
+      </div>
+    </div>
+    <button class="opening-skip-btn" id="openingSkipBtn" aria-label="Skip introduction">Skip &rsaquo;</button>
+  </aside>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="#">
+        <span class="logo-icon">&#127916;</span>
+        <span class="logo-text">CineStream</span>
+      </a>
+
+      <!-- Multi-Language Search & Voice -->
+      <div class="nav-search-bar" id="navSearchBar">
+        <div class="search-input-wrap">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" id="searchInput" placeholder="Search movies across Hindi, Kannada, Tamil, English..." autocomplete="off" />
+          <button class="voice-btn" id="voiceSearchBtn" title="Voice Search (Any Language)" aria-label="Voice Search">
+            <span class="mic-icon">&#127908;</span>
+          </button>
+        </div>
+        <div class="search-results-dropdown" id="searchResultsDropdown" style="display:none;"></div>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Spotlight</a></li>
+        <li><a href="#ramayanaSpotlightRecs">Epics</a></li>
+        <li><a href="#streaming">Browse</a></li>
+        <li>
+          <a href="/watchlist" class="nav-watchlist-link" id="navWatchlistLink" aria-label="My Watchlist">
+            <span class="nav-watchlist-icon">&#128278;</span>
+            <span class="nav-watchlist-text">Watchlist</span>
+            <span class="nav-watchlist-badge" id="navWatchlistBadge">0</span>
+          </a>
+        </li>
+        <li class="nav-dropdown-item" id="navMoreDropdownItem">
+          <button class="nav-dropdown-btn" id="navMoreBtn" aria-haspopup="true" aria-expanded="false">
+            <span>Explore More</span> <span class="nav-caret">&#9662;</span>
+          </button>
+          <div class="nav-dropdown-menu" id="navMoreMenu">
+            <a href="/mood" class="dropdown-link-item"><span class="item-icon">&#127917;</span> Mood Recommendations</a>
+            <a href="/hidden-gems" class="dropdown-link-item"><span class="item-icon">&#128142;</span> Hidden Gems</a>
+            <button id="navOpenAiBtn" class="dropdown-link-item"><span class="item-icon">&#129302;</span> AI Assistant</button>
+            <a href="/compare" class="dropdown-link-item"><span class="item-icon">&#9878;</span> Compare Movies</a>
+            <a href="/insights" class="dropdown-link-item"><span class="item-icon">&#128202;</span> Model Insights</a>
+            <a href="/analytics" class="dropdown-link-item"><span class="item-icon">&#128200;</span> Taste Analytics</a>
+          </div>
+        </li>
+        <li class="nav-user-item" id="navUserItem">
+          <a href="/login" class="nav-auth-btn" id="navLoginBtn">Sign In</a>
+          <div class="nav-user-dropdown-wrap" id="navUserWrap" style="display:none; position:relative;">
+            <button class="nav-avatar-btn" id="navAvatarBtn" aria-label="My Account">
+              <span class="nav-avatar-emoji" id="navAvatarEmoji">🎬</span>
+              <span class="nav-avatar-name" id="navAvatarName">Account</span>
+            </button>
+            <div class="nav-user-menu-box" id="navUserMenuBox" style="display:none;">
+              <div class="menu-user-header" id="menuUserHeader">Signed in</div>
+              <a href="/profile" class="nav-menu-item">👤 Profile & Taste</a>
+              <a href="/for-you" class="nav-menu-item">✨ For You</a>
+              <a href="/watchlist" class="nav-menu-item">📑 Watchlist</a>
+              <hr style="border:0;border-top:1px solid rgba(255,255,255,0.08);margin:6px 0;">
+              <button id="navMenuLogoutBtn" class="nav-menu-item nav-menu-logout">Log Out</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- JIOHOTSTAR-STYLE FULL-BLEED HERO BANNER -->
+  <section class="hero-section" id="hero">
+    <!-- Ambient Background: Full-Bleed Backdrop Image + Full-Bleed YouTube Trailer Video -->
+    <div class="hero-bg-media" id="heroBgMedia">
+      <img id="heroBackdropImg" class="hero-backdrop-img" src="" alt="Featured Backdrop" />
+      <div class="hero-video-wrap" id="heroVideoWrap">
+        <div id="promo-player"></div>
+      </div>
+      <!-- Multi-stop Gradient Overlays for Text Legibility & Page Blend -->
+      <div class="hero-gradient-overlay hero-gradient-left"></div>
+      <div class="hero-gradient-overlay hero-gradient-bottom"></div>
+      <div class="hero-gradient-overlay hero-gradient-top"></div>
+      <canvas id="emberCanvas" class="ember-canvas"></canvas>
+    </div>
+
+    <!-- Centered Full-Banner Content Container -->
+    <div class="hero-container container" id="heroContainer">
+      <!-- Left Column: Spotlight Movie Information Overlay -->
+      <div class="hero-spotlight-info" id="heroSpotlightInfo">
+        <div class="spotlight-badge-row">
+          <span class="spotlight-pill-badge" id="heroBadge">NOW SHOWING IN THEATRES</span>
+          <span class="spotlight-hd-badge">HD</span>
+        </div>
+
+        <h1 class="hero-movie-title" id="heroMovieTitle">Ramayana: Part 1</h1>
+
+        <div class="hero-movie-meta" id="heroMovieMeta">
+          <span class="meta-year" id="heroYear">2026</span>
+          <span class="meta-dot">&bull;</span>
+          <span class="meta-genres" id="heroGenres">Action &bull; Drama &bull; Mythology</span>
+          <span class="meta-dot">&bull;</span>
+          <span class="meta-lang-chip" id="heroOrigLang">Hindi</span>
+        </div>
+
+        <p class="hero-movie-overview" id="heroOverview">
+          An ancient epic follows Prince Rama and Princess Sita whose devotion, exile, and war against the demon king Ravana become a legendary journey of righteousness across worlds.
+        </p>
+
+        <div class="hero-action-group" id="heroActionGroup">
+          <button class="btn-watch-trailer" id="heroWatchTrailerBtn" aria-label="Watch trailer with sound">
+            <span class="btn-play-icon">&#9654;</span> Watch trailer
+          </button>
+          <a class="btn-watch-yt-direct" id="heroWatchOnYtBtn" target="_blank" rel="noopener noreferrer" style="display:none;" aria-label="Watch trailer on YouTube">
+            <span class="yt-play-icon">&#9654;</span> Watch on YouTube
+          </a>
+          <button class="btn-add-list" id="heroAddListBtn" aria-label="Add to Watchlist">
+            <span class="btn-plus-icon">+</span> <span id="heroAddListText">Add to Watchlist</span>
+          </button>
+        </div>
+
+        <div class="hero-cast-line" id="heroCastLine">
+          <span class="cast-label">Starring:</span> <span class="cast-names" id="heroCastNames">Ranbir Kapoor, Sai Pallavi, Yash, Sunny Deol</span>
+        </div>
+      </div>
+
+      <!-- Right Column: 3D Poster Carousel (Selector with Flat Hit-Testing Slots) -->
+      <div class="hero-carousel-column" id="heroCarouselCol">
+        <div class="carousel-stage-container" id="carouselStageContainer">
+          <!-- Circular Prev Button -->
+          <button class="carousel-nav-btn prev" id="carouselPrevBtn" aria-label="Previous Featured Movie">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <!-- 3D Carousel Stage Track (Flat hit-test slots with inner 3D animated cards) -->
+          <div class="carousel-3d-track" id="carousel3dTrack">
+            <!-- Populated dynamically: .carousel-slot > .carousel-card-inner -->
+          </div>
+
+          <!-- Circular Next Button -->
+          <button class="carousel-nav-btn next" id="carouselNextBtn" aria-label="Next Featured Movie">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Pagination Dots -->
+        <div class="carousel-dots-wrapper">
+          <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Featured movies navigation">
+            <!-- Populated dynamically per active language -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom-Right Ambient Preview Controls -->
+    <div class="hero-bottom-controls" id="heroBottomControls">
+      <div class="sound-interaction-hint" id="soundHint">
+        <span class="hint-icon">&#128266;</span>
+        <span class="hint-text">Click for sound</span>
+      </div>
+
+      <!-- Language Dropdown for Active Movie's Trailers -->
+      <div class="hero-audio-wrap" id="heroAudioWrap">
+        <button class="hero-audio-btn" id="heroAudioBtn" aria-haspopup="true" aria-expanded="false" title="Trailer Audio Language">
+          <span class="audio-icon">&#128266;</span>
+          <span class="audio-label" id="heroAudioLabel">Audio: Hindi</span>
+          <span class="audio-caret">&#9662;</span>
+        </button>
+        <div class="hero-audio-menu" id="heroAudioMenu"></div>
+      </div>
+
+      <!-- Mute / Unmute Toggle Button -->
+      <button class="hero-round-btn hero-mute-btn" id="heroMuteBtn" aria-label="Mute or Unmute trailer">
+        <span id="heroMuteIcon">&#128263;</span>
+      </button>
+    </div>
+
+    <!-- Full Trailer Cinematic Control Bar (Visible when watching trailer) -->
+    <div class="hero-trailer-controlbar" id="heroTrailerControlBar">
+      <div class="trailer-bar-left">
+        <button class="trailer-bar-btn trailer-back-btn" id="trailerBackBtn" aria-label="Back to carousel">
+          <span>&larr; Back</span>
+        </button>
+        <button class="trailer-bar-btn" id="trailerPlayPauseBtn" aria-label="Play or Pause">
+          <span id="trailerPlayPauseIcon">&#10074;&#10074;</span>
+        </button>
+        <div class="trailer-time-display" id="trailerTimeDisplay">0:00 / 0:00</div>
+      </div>
+
+      <div class="trailer-bar-center">
+        <div class="trailer-progress-wrap" id="trailerProgressWrap">
+          <div class="trailer-progress-bar" id="trailerProgressBar">
+            <div class="trailer-progress-fill" id="trailerProgressFill"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="trailer-bar-right">
+        <div class="trailer-volume-group">
+          <button class="trailer-bar-btn" id="trailerBarMuteBtn" aria-label="Mute or Unmute">
+            <span id="trailerBarMuteIcon">&#128266;</span>
+          </button>
+          <input type="range" class="trailer-vol-slider" id="trailerVolSlider" min="0" max="100" value="100" aria-label="Volume">
+        </div>
+        <!-- In-trailer audio language selector -->
+        <div class="hero-audio-wrap trailer-audio-dropdown-wrap" id="trailerAudioWrap">
+          <button class="hero-audio-btn trailer-audio-btn" id="trailerAudioBtn" aria-haspopup="true" aria-expanded="false">
+            <span id="trailerAudioLabel">Audio: Hindi</span>
+            <span>&#9662;</span>
+          </button>
+          <div class="hero-audio-menu" id="trailerAudioMenu"></div>
+        </div>
+        <button class="trailer-bar-btn" id="trailerFullscreenBtn" aria-label="Fullscreen">
+          <span>&#x26F6;</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- DYNAMIC RECOMMENDATION SHELF (SYNCS WITH ACTIVE CAROUSEL MOVIE) -->
+  <section class="ramayana-recs-section" id="ramayanaSpotlightRecs">
+    <div class="container spotlight-recs-container">
+      <div class="spotlight-recs-header">
+        <div class="header-left">
+          <p class="section-eyebrow">K-Means Clustering &amp; Cosine Similarity</p>
+          <h2 class="section-title">Because you&#39;re watching <span class="accent-gold" id="activeMovieTitle">Ramayana: Part 1</span></h2>
+          <p class="section-sub">
+            Powered by K-Means Cluster <span id="activeMovieCluster" class="cluster-badge-sub">1: Drama + Action</span> &amp; Cosine Genre Similarity.
+          </p>
+        </div>
+        <div class="header-right">
+          <div class="epic-toggle-card">
+            <span class="toggle-label-text">Show all languages</span>
+            <label class="toggle-switch">
+              <input type="checkbox" id="epicAllLangsToggle" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 1: K-Means cluster picks -->
+      <div class="shelf-carousel-container" data-shelf="cluster_picks">
+        <div class="shelf-header">
+          <div class="shelf-title-wrap">
+            <span class="shelf-icon">&#128260;</span>
+            <h3 class="shelf-title">K-Means cluster picks</h3>
+            <span class="shelf-badge">Cosine Similarity &middot; Same Cluster</span>
+          </div>
+          <p class="shelf-sub">Top films with matching genre fingerprints in Cluster <span id="shelfClusterNum">1</span>.</p>
+        </div>
+        <div class="shelf-carousel-wrapper">
+          <button class="shelf-nav-btn shelf-prev" id="shelfClusterPicksPrev" aria-label="Previous cluster picks">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <div class="shelf-fade left" id="shelfClusterFadeLeft"></div>
+          <div class="shelf-track" id="shelfClusterPicks">
+            <div class="rec-card-skeleton"></div><div class="rec-card-skeleton"></div>
+            <div class="rec-card-skeleton"></div><div class="rec-card-skeleton"></div>
+          </div>
+          <div class="shelf-fade right" id="shelfClusterFadeRight"></div>
+          <button class="shelf-nav-btn shelf-next" id="shelfClusterPicksNext" aria-label="Next cluster picks">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Row 2: Cosine similarity: closest matches -->
+      <div class="shelf-carousel-container" data-shelf="closest_matches">
+        <div class="shelf-header">
+          <div class="shelf-title-wrap">
+            <span class="shelf-icon">&#128081;</span>
+            <h3 class="shelf-title">Cosine similarity: closest matches</h3>
+            <span class="shelf-badge">Pan-Indian &amp; Global Epics</span>
+          </div>
+          <p class="shelf-sub">High-fantasy legends, folklore sagas, and grand historical spectacles across industries.</p>
+        </div>
+        <div class="shelf-carousel-wrapper">
+          <button class="shelf-nav-btn shelf-prev" id="shelfCosineMatchesPrev" aria-label="Previous closest matches">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <div class="shelf-fade left" id="shelfCosineFadeLeft"></div>
+          <div class="shelf-track" id="shelfCosineMatches">
+            <div class="rec-card-skeleton"></div><div class="rec-card-skeleton"></div>
+            <div class="rec-card-skeleton"></div><div class="rec-card-skeleton"></div>
+          </div>
+          <div class="shelf-fade right" id="shelfCosineFadeRight"></div>
+          <button class="shelf-nav-btn shelf-next" id="shelfCosineMatchesNext" aria-label="Next closest matches">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Row 3: Top-rated & predicted gems -->
+      <div class="shelf-carousel-container" data-shelf="top_rated_picks">
+        <div class="shelf-header">
+          <div class="shelf-title-wrap">
+            <span class="shelf-icon">&#9889;</span>
+            <h3 class="shelf-title" id="predictedShelfTitle">Top-rated &amp; predicted gems</h3>
+            <span class="shelf-badge" id="predictedModelBadge">Random Forest &middot; Cluster Assisted</span>
+          </div>
+          <p class="shelf-sub" id="predictedShelfSub">Machine learning regression estimates of what rating you would award each movie.</p>
+        </div>
+        <div class="shelf-carousel-wrapper">
+          <button class="shelf-nav-btn shelf-prev" id="shelfTopRatedPicksPrev" aria-label="Previous predicted gems">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <div class="shelf-fade left" id="shelfTopRatedFadeLeft"></div>
+          <div class="shelf-track" id="shelfTopRatedPicks">
+            <div class="rec-card-skeleton"></div><div class="rec-card-skeleton"></div>
+            <div class="rec-card-skeleton"></div><div class="rec-card-skeleton"></div>
+          </div>
+          <div class="shelf-fade right" id="shelfTopRatedFadeRight"></div>
+          <button class="shelf-nav-btn shelf-next" id="shelfTopRatedPicksNext" aria-label="Next predicted gems">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGE SWITCHER STRIP -->
+  <section class="lang-strip-section" id="langSwitcher">
+    <div class="container lang-strip-container">
+      <div class="lang-pills" id="langPills">
+        <button class="lang-pill active" data-lang="all" title="Global Cinema">
+          <span class="lang-label">All</span>
+          <span class="industry-badge">Global</span>
+        </button>
+        <button class="lang-pill" data-lang="en" title="Hollywood">
+          <span class="lang-label">English</span>
+          <span class="industry-badge">Hollywood</span>
+        </button>
+        <button class="lang-pill" data-lang="hi" title="Bollywood">
+          <span class="lang-label">Hindi</span>
+          <span class="industry-badge">Bollywood</span>
+        </button>
+        <button class="lang-pill" data-lang="kn" title="Sandalwood">
+          <span class="lang-label">Kannada</span>
+          <span class="industry-badge">Sandalwood</span>
+        </button>
+        <button class="lang-pill" data-lang="ta" title="Kollywood">
+          <span class="lang-label">Tamil</span>
+          <span class="industry-badge">Kollywood</span>
+        </button>
+        <button class="lang-pill" data-lang="te" title="Tollywood">
+          <span class="lang-label">Telugu</span>
+          <span class="industry-badge">Tollywood</span>
+        </button>
+        <button class="lang-pill" data-lang="ml" title="Mollywood">
+          <span class="lang-label">Malayalam</span>
+          <span class="industry-badge">Mollywood</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <p class="section-eyebrow">Machine Learning Inside</p>
+      <h2 class="section-title">What&#39;s different?</h2>
+      <p class="section-sub">CineStream combines two distinct ML paradigms for superior recommendations.</p>
+      <div class="features-grid">
+        <div class="feature-card feature-card-1">
+          <div class="feature-icon">&#128269;</div>
+          <div class="feature-badge badge-unsupervised">Unsupervised (Untracked)</div>
+          <h3>K-Means Clustering</h3>
+          <p>Movies are grouped purely by their genre fingerprint &mdash; no ratings needed. K-Means finds natural clusters like <em>"Action + Thriller"</em> or <em>"Animation + Family"</em> using the elbow method and silhouette scores to pick the optimal k.</p>
+          <div class="feature-tech-stack"><span>K-Means</span><span>PCA</span><span>Silhouette</span></div>
+        </div>
+        <div class="feature-card feature-card-2">
+          <div class="feature-icon">&#127919;</div>
+          <div class="feature-badge badge-supervised">Supervised (Tracked)</div>
+          <h3>Rating Prediction</h3>
+          <p>Your ratings teach the model your taste. KNN Regressor and Random Forest predict the score you&#39;d give every unseen movie. Evaluated with RMSE, MAE and R&#178; &mdash; with and without the cluster feature to prove unsupervised helps.</p>
+          <div class="feature-tech-stack"><span>KNN</span><span>Random Forest</span><span>RMSE</span><span>R&#178;</span></div>
+        </div>
+        <div class="feature-card feature-card-3">
+          <div class="feature-icon">&#9889;</div>
+          <div class="feature-badge badge-together">Together</div>
+          <h3>Better Together</h3>
+          <p>The cluster ID from K-Means becomes a feature in the supervised model. This bridge between unsupervised and supervised learning measurably improves prediction accuracy &mdash; a core concept in modern ML pipelines.</p>
+          <div class="feature-tech-stack"><span>Pipeline</span><span>Feature Eng.</span><span>Ensemble</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOMMENDED -->
+  <section class="recommended-section recommended" id="recommended">
+    <div class="container">
+      <div class="recommended-header" id="recommendedHeader">
+        <div class="recommended-header-text">
+          <p class="section-eyebrow">Personalised picks</p>
+          <h2 class="section-title">Recommended for you</h2>
+          <div class="recommended-note" id="recommendedNote" style="display: none;">Rate 3 movies to personalise. Showing popular picks</div>
+          <div class="rec-badge-row" id="recBadgeRow" style="display: none;">
+            <span class="rec-source-badge" id="recSourceBadge">Results from: Random Forest</span>
+            <span class="rec-overlap-badge" id="recOverlapBadge" style="display: none;">Overlap with KNN: 0 of 10</span>
+          </div>
+        </div>
+        <div class="rec-info-panel" id="recInfoPanel">
+          <div class="rec-fav-cluster">
+            <span class="rec-fav-label">Your favourite cluster:</span>
+            <span class="rec-fav-name" id="favClusterName">Rate movies to discover &#8594;</span>
+          </div>
+          <div class="rec-model-select">
+            <div class="model-select-inline">
+              <label for="modelSelect">Model:</label>
+              <select id="modelSelect" class="pill-select">
+                <option value="rf">Random Forest</option>
+                <option value="knn">KNN</option>
+              </select>
+            </div>
+            <div class="rec-model-expl" id="recModelExpl">Random Forest: predicts from movie features</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KNN Cold-Start / Taste-Profile Panel (Rendered dynamically via single source of truth /api/quick-picks) -->
+      <div class="knn-cold-start-panel" id="knnColdStartPanel" style="display: none;"></div>
+
+      <div class="cold-start-prompt hidden" id="coldStartPrompt" style="display:none;">
+        <div class="cold-start-icon">&#127916;</div>
+        <p>Rate a few movies in the <strong>Browse</strong> section below to get personalised recommendations!</p>
+        <button class="btn-primary btn-sm" onclick="document.getElementById('streaming').scrollIntoView({behavior:'smooth'})">Rate movies &#8595;</button>
+      </div>
+      <div class="shelf-carousel-wrapper" id="recCarouselWrapper">
+        <button class="shelf-nav-btn shelf-prev" id="recRowPrev" aria-label="Previous recommendations">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="rec-row" id="recRow"></div>
+        <button class="shelf-nav-btn shelf-next" id="recRowNext" aria-label="Next recommendations">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCOVER ACROSS CULTURES -->
+  <section class="cross-culture-section" id="crossCultureSection">
+    <div class="container">
+      <div class="cross-culture-header" id="crossCultureHeader">
+        <div class="cross-culture-header-text">
+          <p class="section-eyebrow">Discover across cultures</p>
+          <h2 class="section-title">Regional Gems Across India</h2>
+          <p class="section-sub">Acclaimed regional films from Sandalwood, Bollywood, Kollywood, Tollywood &amp; Mollywood.</p>
+        </div>
+      </div>
+      <div class="shelf-carousel-wrapper">
+        <button class="shelf-nav-btn shelf-prev" id="crossCulturePrev" aria-label="Previous cultural gems">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="rec-row cross-culture-row" id="crossCultureRow"></div>
+        <button class="shelf-nav-btn shelf-next" id="crossCultureNext" aria-label="Next cultural gems">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM SPLIT -->
+  <section class="platform-split" id="platform">
+    <div class="container platform-container">
+      <div class="platform-text">
+        <p class="section-eyebrow">About CineStream</p>
+        <h2 class="platform-headline">Video Production<br /><span class="accent">Platform</span></h2>
+        <p class="platform-desc">CineStream isn&#39;t just a recommendation engine &mdash; it&#39;s a complete ML showcase. Built with Flask, Scikit-learn, and GSAP, it demonstrates how unsupervised and supervised learning can be combined into a real-world product pipeline.</p>
+        <ul class="platform-features">
+          <li>&#10003; One-hot genre encoding &amp; feature engineering</li>
+          <li>&#10003; K-Means clusters with PCA visualisation</li>
+          <li>&#10003; KNN vs Random Forest with live metrics comparison</li>
+          <li>&#10003; TMDB poster integration with graceful fallbacks</li>
+          <li>&#10003; Fully responsive with GSAP animations</li>
+        </ul>
+        <button class="btn-primary" id="openInsights2">View ML Insights &#128202;</button>
+      </div>
+      <div class="platform-visual">
+        <div class="platform-mockup live-cluster-card">
+          <div class="mockup-header-bar" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08);">
+            <div class="mockup-dots-inline" style="display:flex;gap:6px;">
+              <span class="mdot mdot-1"></span>
+              <span class="mdot mdot-2"></span>
+              <span class="mdot mdot-3"></span>
+            </div>
+            <div class="mockup-label" style="margin:0;font-size:0.82rem;font-weight:600;color:#f9e27d;">Live K-Means Cluster Distribution</div>
+          </div>
+          <div class="mockup-chart-container" style="padding:16px 12px;height:240px;position:relative;">
+            <canvas id="liveClusterChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STREAMING -->
+  <section class="streaming" id="streaming">
+    <div class="container">
+      <p class="section-eyebrow">Browse &amp; Rate</p>
+      <h2 class="section-title">Online Streaming</h2>
+      <p class="section-sub">Rate movies to train your personalised recommendation model.</p>
+      <div class="tabs" id="tabsContainer" role="tablist">
+        <button class="tab active" data-genre="All" role="tab">Movies</button>
+        <button class="tab" data-genre="TV" role="tab">TV Shows</button>
+        <button class="tab" data-genre="Animation" role="tab">Animation</button>
+        <button class="tab" data-genre="Anime" role="tab">Anime</button>
+      </div>
+      <div class="rating-status">
+        <span class="rating-count" id="ratingCount">0</span> movies rated
+        <button class="btn-refresh" id="refreshRec">&#10024; Get recommendations</button>
+      </div>
+      <div class="poster-grid" id="posterGrid">
+        <div class="skeleton-card"></div><div class="skeleton-card"></div>
+        <div class="skeleton-card"></div><div class="skeleton-card"></div>
+        <div class="skeleton-card"></div><div class="skeleton-card"></div>
+        <div class="skeleton-card"></div><div class="skeleton-card"></div>
+        <div class="skeleton-card"></div><div class="skeleton-card"></div>
+        <div class="skeleton-card"></div><div class="skeleton-card"></div>
+      </div>
+      <div class="load-more-wrap">
+        <button class="btn-outline" id="loadMoreBtn">Load more movies</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter" id="newsletter">
+    <div class="container">
+      <div class="newsletter-box">
+        <div class="newsletter-text">
+          <h2>Subscribe to our newsletter</h2>
+          <p>Get the latest updates on new features and ML model improvements.</p>
+        </div>
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+          <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="Enter your email" required />
+          <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <span class="logo-icon">&#127916;</span>
+          <span class="logo-text">CineStream</span>
+        </div>
+        <p class="footer-tagline">AI-powered movie streaming with K-Means &amp; Random Forest recommendations.</p>
+        <div class="footer-socials"><a href="#" aria-label="GitHub">GH</a><a href="#" aria-label="Twitter">TW</a><a href="#" aria-label="LinkedIn">LI</a></div>
+      </div>
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#recommended">For You</a></li>
+          <li><a href="#streaming">Browse</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Business</h4>
+        <ul>
+          <li><a href="#">ML Documentation</a></li>
+          <li><a href="#">API Reference</a></li>
+          <li><a href="#">Model Insights</a></li>
+          <li><a href="#">Dataset Info</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Investors</h4>
+        <ul>
+          <li><a href="#">About the Project</a></li>
+          <li><a href="#">ML Pipeline</a></li>
+          <li><a href="#">Tech Stack</a></li>
+          <li><a href="#">Team</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 CineStream &middot; Built with Flask, Scikit-learn &amp; GSAP &middot; MovieLens &amp; TMDB Datasets &middot; <button class="btn-link-replay" id="replayIntroBtn" title="Replay Opening Intro Screen">&#8635; Replay intro</button></p>
+      <p class="tmdb-attribution">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+      <p class="ramayana-disclaimer">Ramayana: Part 1 trailer, artwork, and character trademarks belong to their respective copyright owners (Prime Focus Studios / Monster Mind Creations / DNEG / Nitesh Tiwari). This is an academic educational machine learning demonstration.</p>
+    </div>
+  </footer>
+
+  <!-- MODEL INSIGHTS MODAL -->
+  <div class="modal-overlay" id="insightsModal" role="dialog" aria-modal="true" aria-label="Model Insights">
+    <div class="modal-panel">
+      <button class="modal-close" id="closeInsights" aria-label="Close">&times;</button>
+      <h2 class="modal-title">&#128202; Model Insights</h2>
+      <p class="modal-sub">Training results for the CineStream ML pipeline.</p>
+      <div class="modal-lang-bar">
+        <label for="modalLangSelect">&#127760; Model Language:</label>
+        <select id="modalLangSelect" class="pill-select">
+          <option value="all">All Languages (Combined)</option>
+          <option value="en">English (Hollywood)</option>
+          <option value="hi">Hindi (Bollywood)</option>
+          <option value="kn">Kannada (Sandalwood)</option>
+          <option value="ta">Tamil (Kollywood)</option>
+          <option value="te">Telugu (Tollywood)</option>
+          <option value="ml">Malayalam (Mollywood)</option>
+        </select>
+      </div>
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-panel="plots">Visualisations</button>
+        <button class="modal-tab" data-panel="metrics">Metrics</button>
+        <button class="modal-tab" data-panel="clusters">Clusters</button>
+      </div>
+      <div class="modal-panel-content active" id="panel-plots">
+        <div class="plots-grid">
+          <div class="plot-item">
+            <h4>Elbow Plot &amp; Silhouette Scores</h4>
+            <img id="elbowPlotImg" src="/static/images/elbow_plot.png" alt="Elbow plot" class="plot-img" onerror="this.style.display='none';document.getElementById('elbowFallback').style.display='block'" />
+            <div id="elbowFallback" class="plot-fallback" style="display:none">Run <code>python ml/train.py</code> to generate this plot.</div>
+          </div>
+          <div class="plot-item">
+            <h4>PCA Cluster Visualisation</h4>
+            <img id="pcaPlotImg" src="/static/images/cluster_pca.png" alt="PCA cluster plot" class="plot-img" onerror="this.style.display='none';document.getElementById('pcaFallback').style.display='block'" />
+            <div id="pcaFallback" class="plot-fallback" style="display:none">Run <code>python ml/train.py</code> to generate this plot.</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-panel-content" id="panel-metrics">
+        <div class="metrics-loading" id="metricsLoading">Loading metrics&#8230;</div>
+        <div id="metricsContent" style="display:none">
+          <div id="spotlightInsightBox" class="spotlight-insight-box"></div>
+          <div id="watchlistInsightBox" class="spotlight-insight-box" style="margin-top: 8px;"></div>
+          <table class="metrics-table" id="metricsTable">
+            <thead>
+              <tr><th>Model</th><th>Cluster Feature</th><th>RMSE &#8595;</th><th>MAE &#8595;</th><th>R&#178; &#8593;</th></tr>
+            </thead>
+            <tbody id="metricsTableBody"></tbody>
+          </table>
+          <p class="metrics-note">&#8595; Lower is better for RMSE &amp; MAE. &#8593; Higher is better for R&#178;. Compare "With cluster" vs "Without cluster" to see the impact of K-Means.</p>
+        </div>
+      </div>
+      <div class="modal-panel-content" id="panel-clusters">
+        <div class="clusters-loading" id="clustersLoading">Loading clusters&#8230;</div>
+        <div class="clusters-grid" id="clustersGrid" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RATE FEATURED MOVIE MODAL -->
+  <div class="modal-overlay" id="rateRamayanaModal" role="dialog" aria-modal="true" aria-label="Rate Movie">
+    <div class="modal-panel rate-modal-panel">
+      <button class="modal-close" id="closeRateRamayana" aria-label="Close">&times;</button>
+      <div class="rate-modal-header">
+        <img src="https://image.tmdb.org/t/p/w185/vBQ7wks68OhJKlb3RnXSl2yXBXK.jpg" alt="Movie Poster" class="rate-modal-thumb" id="rateModalThumb" />
+        <div>
+          <span class="rate-modal-badge" id="rateModalBadge">FEATURED MOVIE</span>
+          <h3 class="rate-modal-title" id="rateModalTitle">Rate Movie</h3>
+          <p class="rate-modal-sub">Tell our ML model how much you enjoy this movie!</p>
+        </div>
+      </div>
+      <div class="star-rating-large" id="ramayanaStarRating">
+        <span class="star-lg" data-value="1">&#9733;</span>
+        <span class="star-lg" data-value="2">&#9733;</span>
+        <span class="star-lg" data-value="3">&#9733;</span>
+        <span class="star-lg" data-value="4">&#9733;</span>
+        <span class="star-lg" data-value="5">&#9733;</span>
+      </div>
+      <div class="rate-score-text" id="ramayanaScoreText">Select a rating from 1 to 5 stars</div>
+      <div class="rate-modal-actions">
+        <button class="btn-primary" id="submitRamayanaRating">Save Rating &amp; Update Recommendations</button>
+      </div>
+
+      <!-- Where to Watch Streaming Providers -->
+      <div class="providers-section" id="modalProvidersSection" style="margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08); text-align: left;">
+        <div style="font-size: 0.8rem; font-weight: 600; color: #f9e27d; text-transform: uppercase; margin-bottom: 8px;">Where to Watch (India)</div>
+        <div class="providers-chips-wrap" id="modalProvidersChips" style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <span style="font-size: 0.8rem; color: #aaa;">JioCinema &middot; Disney+ Hotstar &middot; Prime Video</span>
+        </div>
+        <div style="font-size: 0.72rem; color: #777; margin-top: 6px;" id="justwatchAttribution">Streaming data powered by JustWatch via TMDB</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI MOVIE ASSISTANT FLOATING BUTTON & DRAWER -->
+  <button class="ai-fab-btn" id="aiFabBtn" aria-label="Open AI Movie Assistant" style="position: fixed; bottom: 28px; right: 28px; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #f9e27d, #e50914); color: #0f0f12; font-size: 1.6rem; border: none; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,0.6); z-index: 1000; display: flex; align-items: center; justify-content: center; transition: transform 0.2s;">
+    <span>🤖</span>
+  </button>
+
+  <div class="ai-drawer" id="aiDrawer" style="display: none; position: fixed; bottom: 94px; right: 28px; width: 360px; height: 480px; background: #141418; border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; box-shadow: 0 16px 48px rgba(0,0,0,0.8); z-index: 1000; flex-direction: column; overflow: hidden; backdrop-filter: blur(20px);">
+    <div style="padding: 14px 18px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #f9e27d;">
+        <span>🤖</span> <span>CineStream AI Assistant</span>
+      </div>
+      <button id="closeAiDrawer" style="background: none; border: none; color: #aaa; font-size: 1.2rem; cursor: pointer;">&times;</button>
+    </div>
+    <div id="aiChatMessages" style="flex: 1; padding: 14px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;">
+      <div style="background: rgba(255,255,255,0.05); padding: 10px 14px; border-radius: 10px; color: #eee; align-self: flex-start; max-width: 85%;">
+        Hello! I'm your CineStream AI guide. Ask me for movie recommendations, genre clusters, or questions about Kantara and Ramayana!
+      </div>
+    </div>
+    <form id="aiChatForm" style="display: flex; padding: 10px; border-top: 1px solid rgba(255,255,255,0.08); background: #0f0f12;">
+      <input type="text" id="aiChatInput" placeholder="Ask CineStream AI..." autocomplete="off" style="flex: 1; background: #1c1c22; border: 1px solid #333; color: white; padding: 8px 12px; border-radius: 8px; font-size: 0.85rem;" />
+      <button type="submit" style="background: #f9e27d; border: none; color: #0f0f12; padding: 8px 14px; border-radius: 8px; font-weight: 700; margin-left: 8px; cursor: pointer;">Send</button>
+    </form>
+  </div>
+
+  <!-- HIDDEN TRAILER DEBUG PANEL (Toggle with Ctrl+Shift+D or ?debug=1) -->
+  <aside class="trailer-debug-panel" id="trailerDebugPanel" style="display:none;" aria-label="Trailer diagnostics">
+    <div class="debug-panel-header">
+      <div class="debug-panel-title">
+        <span class="debug-icon">&#128295;</span>
+        <span>Trailer Diagnostics (Dev Mode)</span>
+      </div>
+      <button class="debug-close-btn" id="debugCloseBtn" aria-label="Close diagnostics">&times;</button>
+    </div>
+    <div class="debug-panel-body" id="debugPanelBody">
+      <div class="debug-loading">Loading trailer metadata...</div>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+  <script src="/static/js/promo-player.js"></script>
+  <script src="/static/js/main.js"></script>
+</body>
+</html>

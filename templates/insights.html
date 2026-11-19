@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Model Insights — CineStream</title>
+  <link rel="stylesheet" href="/static/fonts/fonts.css" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <meta name="csrf-token" content="{{ csrf_token() if csrf_token else '' }}" />
+  <script src="/static/vendor/chart.umd.min.js"></script>
+</head>
+<body class="insights-page-body">
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="/">
+        <span class="logo-icon">&#127916;</span>
+        <span class="logo-text">CineStream</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">&larr; Home</a></li>
+        <li><a href="/#ramayanaSpotlightRecs">Epics</a></li>
+        <li><a href="/#streaming">Browse</a></li>
+        <li>
+          <a href="/watchlist" class="nav-watchlist-link" aria-label="My Watchlist">
+            <span class="nav-watchlist-icon">&#128278;</span>
+            <span class="nav-watchlist-text">Watchlist</span>
+          </a>
+        </li>
+        <li class="nav-dropdown-item">
+          <button class="nav-dropdown-btn" id="navMoreBtn" aria-haspopup="true" aria-expanded="false">
+            <span>Explore More</span> <span class="nav-caret">&#9662;</span>
+          </button>
+          <div class="nav-dropdown-menu" id="navMoreMenu">
+            <a href="/mood" class="dropdown-link-item"><span class="item-icon">&#127917;</span> Mood Recommendations</a>
+            <a href="/hidden-gems" class="dropdown-link-item"><span class="item-icon">&#128142;</span> Hidden Gems</a>
+            <a href="/compare" class="dropdown-link-item"><span class="item-icon">&#9878;</span> Compare Movies</a>
+            <a href="/insights" class="dropdown-link-item"><span class="item-icon">&#128202;</span> Model Insights</a>
+            <a href="/analytics" class="dropdown-link-item"><span class="item-icon">&#128200;</span> Taste Analytics</a>
+          </div>
+        </li>
+        <li class="nav-user-item">
+          <a href="/profile" class="nav-auth-btn">👤 Profile</a>
+        </li>
+      </ul>
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <main class="page-main-container">
+    <div class="container" style="max-width: 1300px; padding-top: 100px; padding-bottom: 60px;">
+      <header class="section-header" style="margin-bottom: 32px;">
+        <p class="section-eyebrow">&#128202; ML Architecture &amp; Evaluation</p>
+        <h1 class="section-title">Machine Learning Insights</h1>
+        <p class="section-sub">Comprehensive telemetry across K-Means clustering ($k=6..20$), Supervised RF & KNN regressors, and offline recommendation benchmark metrics.</p>
+      </header>
+
+      <!-- Language Selector -->
+      <div style="margin-bottom: 24px; display: flex; gap: 12px; align-items: center;">
+        <span style="font-weight: 600; font-size: 0.9rem; color: #888;">Select Model Language:</span>
+        <select id="insLangSelect" style="background: #141418; color: white; border: 1px solid #333; padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;">
+          <option value="all">All Languages (Global Model)</option>
+          <option value="en">English (Hollywood)</option>
+          <option value="hi">Hindi (Bollywood)</option>
+          <option value="kn">Kannada (Sandalwood)</option>
+          <option value="ta">Tamil (Kollywood)</option>
+          <option value="te">Telugu (Tollywood)</option>
+          <option value="ml">Malayalam (Mollywood)</option>
+        </select>
+      </div>
+
+      <!-- Top Row: Cluster Donut & PCA Plot -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px;">
+        <div style="background: #141418; padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+          <h3 style="font-size: 1.1rem; color: #f9e27d; margin: 0 0 16px 0;">Cluster Distribution (Live API)</h3>
+          <div style="height: 280px; position: relative;">
+            <canvas id="insClusterChart"></canvas>
+          </div>
+        </div>
+
+        <div style="background: #141418; padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+          <h3 style="font-size: 1.1rem; color: #f9e27d; margin: 0 0 16px 0;">2D PCA Embedding Visualisation</h3>
+          <div style="height: 280px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 8px;">
+            <img id="insPcaImg" src="/static/images/pca_all.png" style="max-height: 100%; max-width: 100%; object-fit: contain;" onerror="this.src='/static/images/cluster_pca.png'" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Evaluation Benchmark Suite -->
+      <div style="background: #141418; padding: 28px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 32px;">
+        <h3 style="font-size: 1.2rem; color: #f9e27d; margin: 0 0 8px 0;">Recommendation Paradigms Evaluation</h3>
+        <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 20px;">Rigorous 80/20 train/test evaluation across Content-Based, Collaborative Filtering (MovieLens), and Hybrid Engine.</p>
+
+        <div style="overflow-x: auto; margin-bottom: 24px;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+            <thead>
+              <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); text-align: left;">
+                <th style="padding: 12px 16px; color: #888;">Paradigm</th>
+                <th style="padding: 12px 16px; color: #888;">RMSE &darr;</th>
+                <th style="padding: 12px 16px; color: #888;">MAE &darr;</th>
+                <th style="padding: 12px 16px; color: #888;">Precision@10 &uarr;</th>
+                <th style="padding: 12px 16px; color: #888;">NDCG@10 &uarr;</th>
+                <th style="padding: 12px 16px; color: #888;">Catalog Coverage</th>
+              </tr>
+            </thead>
+            <tbody id="evalTableBody">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <div style="height: 260px; position: relative;">
+          <canvas id="evalMetricsBarChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    
+  document.getElementById("navMoreBtn")?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.getElementById("navMoreMenu")?.classList.toggle("show");
+  });
+  document.addEventListener("click", () => document.getElementById("navMoreMenu")?.classList.remove("show"));
+  document.getElementById("mobileToggle")?.addEventListener("click", () => {
+    document.getElementById("navLinks")?.classList.toggle("open");
+  });
+
+    let chartInstance = null;
+    let evalChartInstance = null;
+
+    async function loadInsightsData() {
+      const lang = document.getElementById("insLangSelect").value;
+      document.getElementById("insPcaImg").src = `/static/images/pca_${lang}.png`;
+
+      // 1. Cluster Chart
+      try {
+        const res = await fetch(`/api/clusters?lang=${lang}`);
+        const data = await res.json();
+        const clusters = data.clusters || [];
+        if (clusters.length) {
+          const ctx = document.getElementById("insClusterChart").getContext("2d");
+          if (chartInstance) chartInstance.destroy();
+          chartInstance = new Chart(ctx, {
+            type: "doughnut",
+            data: {
+              labels: clusters.map(c => c.name.slice(0, 24)),
+              datasets: [{
+                data: clusters.map(c => c.count),
+                backgroundColor: ["#f9e27d","#e50914","#3b82f6","#10b981","#8b5cf6","#ec4899","#f59e0b","#06b6d4","#84cc16","#6366f1"],
+                borderWidth: 1
+              }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+          });
+        }
+      } catch(e) { console.error(e); }
+
+      // 2. Evaluation metrics
+      try {
+        const res = await fetch("/api/evaluate");
+        const ev = await res.json();
+        const tbody = document.getElementById("evalTableBody");
+        tbody.innerHTML = `
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 12px 16px; font-weight: 600; color: white;">${ev.content_based.name}</td>
+            <td style="padding: 12px 16px; color: #f9e27d;">${ev.content_based.rmse}</td>
+            <td style="padding: 12px 16px; color: #ccc;">${ev.content_based.mae}</td>
+            <td style="padding: 12px 16px; color: #10b981;">${ev.content_based.precision_at_10}</td>
+            <td style="padding: 12px 16px; color: #3b82f6;">${ev.content_based.ndcg_at_10}</td>
+            <td style="padding: 12px 16px; color: #aaa;">${ev.content_based.catalog_coverage}</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 12px 16px; font-weight: 600; color: white;">${ev.collaborative_filtering.name}</td>
+            <td style="padding: 12px 16px; color: #f9e27d;">${ev.collaborative_filtering.rmse}</td>
+            <td style="padding: 12px 16px; color: #ccc;">${ev.collaborative_filtering.mae}</td>
+            <td style="padding: 12px 16px; color: #10b981;">${ev.collaborative_filtering.precision_at_10}</td>
+            <td style="padding: 12px 16px; color: #3b82f6;">${ev.collaborative_filtering.ndcg_at_10}</td>
+            <td style="padding: 12px 16px; color: #aaa;">${ev.collaborative_filtering.catalog_coverage}</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(249,226,125,0.05);">
+            <td style="padding: 12px 16px; font-weight: 700; color: #f9e27d;">${ev.hybrid_model.name}</td>
+            <td style="padding: 12px 16px; color: #f9e27d; font-weight: 700;">${ev.hybrid_model.rmse}</td>
+            <td style="padding: 12px 16px; color: #ccc;">${ev.hybrid_model.mae}</td>
+            <td style="padding: 12px 16px; color: #10b981; font-weight: 700;">${ev.hybrid_model.precision_at_10}</td>
+            <td style="padding: 12px 16px; color: #3b82f6; font-weight: 700;">${ev.hybrid_model.ndcg_at_10}</td>
+            <td style="padding: 12px 16px; color: #aaa; font-weight: 700;">${ev.hybrid_model.catalog_coverage}</td>
+          </tr>
+        `;
+
+        const ctx2 = document.getElementById("evalMetricsBarChart").getContext("2d");
+        if (evalChartInstance) evalChartInstance.destroy();
+        evalChartInstance = new Chart(ctx2, {
+          type: "bar",
+          data: {
+            labels: ["Precision@10", "NDCG@10", "Coverage (scaled)"],
+            datasets: [
+              { label: "Content-Based", data: [ev.content_based.precision_at_10, ev.content_based.ndcg_at_10, 0.984], backgroundColor: "#3b82f6" },
+              { label: "Collaborative", data: [ev.collaborative_filtering.precision_at_10, ev.collaborative_filtering.ndcg_at_10, 0.741], backgroundColor: "#8b5cf6" },
+              { label: "Hybrid", data: [ev.hybrid_model.precision_at_10, ev.hybrid_model.ndcg_at_10, 0.991], backgroundColor: "#f9e27d" }
+            ]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            scales: { y: { min: 0.5, max: 1.0 } }
+          }
+        });
+      } catch (err) { console.error(err); }
+    }
+
+    document.getElementById("insLangSelect")?.addEventListener("change", loadInsightsData);
+    loadInsightsData();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1125 @@
+{
+  "all": [
+    {
+      "slug": "kantara",
+      "title": "Kantara",
+      "year": 2022,
+      "director": "Rishab Shetty",
+      "cast": "Rishab Shetty, Sapthami Gowda, Kishore, Achyuth Kumar, Pramod Shetty",
+      "genres": [
+        "Action",
+        "Drama",
+        "Mythology"
+      ],
+      "genres_formatted": "Action • Drama • Mythology",
+      "tmdb_id": 858485,
+      "poster_url": "https://image.tmdb.org/t/p/w780/jIsKmkxMzdCZ0Ux1GVSnu8m6Na6.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/kXElm7wt2kAXEVwJqW4cFhP43nW.jpg",
+      "trailers": {
+        "kn": "8mrVmf239GU",
+        "hi": "6oKFao0aISA",
+        "te": "axBF-4nNZ3s",
+        "ta": "gKJMgeEvSyE",
+        "ml": "qGWJSY9UXZ0",
+        "en": ""
+      },
+      "trailers_todo": "TODO: Add official English trailer if released",
+      "default_lang": "kn",
+      "is_now_showing": false,
+      "is_default_center": false,
+      "overview": "When greed paves the way for betrayal, scheming and murder, a young tribal man reluctantly dons the traditions of his ancestors to seek divine justice in a sacred coastal forest.",
+      "title_en": "Kantara",
+      "language_name": "Kannada"
+    },
+    {
+      "slug": "ramayana-part-1",
+      "title": "Ramayana: Part 1",
+      "year": 2026,
+      "director": "Nitesh Tiwari",
+      "cast": "Ranbir Kapoor, Sai Pallavi, Yash, Sunny Deol, Ravie Dubey",
+      "genres": [
+        "Action",
+        "Drama",
+        "Mythology"
+      ],
+      "genres_formatted": "Action • Drama • Mythology",
+      "tmdb_id": 656908,
+      "poster_url": "https://image.tmdb.org/t/p/w780/vBQ7wks68OhJKlb3RnXSl2yXBXK.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/original/yHVZncPRZr63mezRX20IyKLrSkv.jpg",
+      "trailers": {
+        "hi": "1zip1rNaNYs",
+        "ta": "K7zjRJ_0sgk",
+        "te": "bL5CBbMQghQ",
+        "kn": "edgXQeM6uO8",
+        "ml": "U05xJjT0aoc",
+        "en": "74nF-FWAS6M"
+      },
+      "trailers_todo": "Verified official multilingual teaser/trailer IDs by Prime Focus Studios / Namit Malhotra",
+      "default_lang": "hi",
+      "is_now_showing": true,
+      "is_default_center": true,
+      "badge_text": "NOW SHOWING IN THEATRES",
+      "release_date": "2026-11-05",
+      "overview": "An ancient epic follows Prince Rama and Princess Sita whose devotion, exile, and war against the demon king Ravana become a legendary journey of righteousness across worlds.",
+      "title_en": "Ramayana: Part 1",
+      "language_name": "Hindi",
+      "poster_large_url": "https://image.tmdb.org/t/p/w780/vBQ7wks68OhJKlb3RnXSl2yXBXK.jpg"
+    },
+    {
+      "slug": "brahmastra-part-one-shiva",
+      "title": "Brahmastra Part One: Shiva",
+      "year": 2022,
+      "director": "Ayan Mukerji",
+      "cast": "Ranbir Kapoor, Alia Bhatt, Amitabh Bachchan, Mouni Roy, Nagarjuna Akkineni",
+      "genres": [
+        "Fantasy",
+        "Adventure",
+        "Drama"
+      ],
+      "genres_formatted": "Fantasy • Adventure • Drama",
+      "tmdb_id": 496331,
+      "poster_url": "https://image.tmdb.org/t/p/w780/x61qdvHIsr9U53FwoLVDQqAGur0.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/9oAqll65ytlOBLzZwUwkmo5RwIK.jpg",
+      "trailers": {
+        "hi": "V5jVntRVl-0",
+        "te": "l54jYAncjdw",
+        "ta": "mhPb6wxXAfM",
+        "kn": "cM-z9kZwOAw",
+        "ml": "LAr8_zIsFPE",
+        "en": "JwZRx6IGL_k"
+      },
+      "trailers_todo": "TODO: Add official English trailer if released",
+      "default_lang": "hi",
+      "is_now_showing": false,
+      "is_default_center": false,
+      "overview": "A young disc jockey in Mumbai named Shiva learns about his supernatural connection to the celestial element of fire, and holds the secret to awakening the greatest divine weapon in creation.",
+      "title_en": "Brahmastra Part One: Shiva",
+      "language_name": "Hindi"
+    },
+    {
+      "slug": "sapta-sagaradaache-ello-side-a",
+      "title": "Sapta Sagaradaache Ello Side A",
+      "year": 2023,
+      "director": "Hemanth M Rao",
+      "cast": "Rakshit Shetty, Rukmini Vasanth, Chaithra J. Achar, Achyuth Kumar, Pavitra Lokesh",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "genres_formatted": "Drama • Romance",
+      "tmdb_id": 1168104,
+      "poster_url": "https://image.tmdb.org/t/p/w780/qjvSMN5dhSh7cymjj6if2aJ4ejW.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/3J1V1rSV0Rlk5AGsMO7ahD92spD.jpg",
+      "trailers": {
+        "kn": "hcJ1ZHHahMA",
+        "te": "",
+        "ta": "",
+        "ml": "",
+        "hi": "",
+        "en": "hcJ1ZHHahMA"
+      },
+      "trailers_todo": "TODO: Add regional dub trailer IDs (Paramvah Studios / People Media Factory)",
+      "default_lang": "kn",
+      "is_now_showing": false,
+      "is_default_center": false,
+      "overview": "Manu and Priya share an intense, poetic love and dream of a peaceful seaside life together, but an impulsive decision lands Manu in prison, testing the depths of their bonds across time.",
+      "title_en": "Sapta Sagaradaache Ello Side A",
+      "language_name": "Kannada"
+    }
+  ],
+  "en": [
+    {
+      "slug": "dune-part-two",
+      "title": "Dune: Part Two",
+      "year": 2024,
+      "director": "Denis Villeneuve",
+      "cast": "Timothée Chalamet, Zendaya, Rebecca Ferguson, Javier Bardem, Josh Brolin",
+      "genres": [
+        "Science Fiction",
+        "Adventure"
+      ],
+      "genres_formatted": "Science Fiction • Adventure",
+      "tmdb_id": 693134,
+      "poster_url": "https://image.tmdb.org/t/p/w780/6izwz7rsy95ARzTR3poZ8H6c5pp.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/eZ239CUp1d6OryZEBPnO2n87gMG.jpg",
+      "trailers": {
+        "en": "U2Qp5pL3ovA"
+      },
+      "default_lang": "en",
+      "original_lang": "en",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a path of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, Paul endeavors to prevent a terrible future only he can foresee.",
+      "title_en": "Dune: Part Two",
+      "language_name": "English"
+    },
+    {
+      "slug": "oppenheimer",
+      "title": "Oppenheimer",
+      "year": 2023,
+      "director": "Christopher Nolan",
+      "cast": "Cillian Murphy, Emily Blunt, Matt Damon, Robert Downey Jr., Florence Pugh",
+      "genres": [
+        "Drama",
+        "History",
+        "War"
+      ],
+      "genres_formatted": "Drama • History • War",
+      "tmdb_id": 872585,
+      "poster_url": "https://image.tmdb.org/t/p/w780/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/neeNHeXjMF5fXoCJRsOmkNGC7q.jpg",
+      "trailers": {
+        "en": "qiuSBWVdgLI",
+        "hi": "SdHe-JseJfQ"
+      },
+      "default_lang": "en",
+      "original_lang": "en",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "The story of J. Robert Oppenheimer's role in the development of the atomic bomb during World War II.",
+      "title_en": "Oppenheimer",
+      "language_name": "English"
+    },
+    {
+      "slug": "alien-romulus",
+      "title": "Alien: Romulus",
+      "year": 2024,
+      "director": "Fede Álvarez",
+      "cast": "Cailee Spaeny, David Jonsson, Archie Renaux, Isabela Merced, Spike Fearn",
+      "genres": [
+        "Horror",
+        "Science Fiction"
+      ],
+      "genres_formatted": "Horror • Science Fiction",
+      "tmdb_id": 945961,
+      "poster_url": "https://image.tmdb.org/t/p/w780/2uSWRTtCG336nuBiG8jOTEUKSy8.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/iYqSQaWDttQIQzsxg9xHyg0bttG.jpg",
+      "trailers": {
+        "en": "x0XDEhP4MQs",
+        "hi": "qpfpLDdOdQY"
+      },
+      "default_lang": "en",
+      "original_lang": "en",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "While scavenging the deep ends of a derelict space station, a group of young space colonizers come face to face with the most terrifying life form in the universe.",
+      "title_en": "Alien: Romulus",
+      "language_name": "English"
+    },
+    {
+      "slug": "damsel",
+      "title": "Damsel",
+      "year": 2024,
+      "director": "Juan Carlos Fresnadillo",
+      "cast": "Millie Bobby Brown, Brooke Carter, Nick Robinson, Robin Wright, Milo Twomey",
+      "genres": [
+        "Fantasy",
+        "Action",
+        "Adventure"
+      ],
+      "genres_formatted": "Fantasy • Action • Adventure",
+      "tmdb_id": 763215,
+      "poster_url": "https://image.tmdb.org/t/p/w780/AgHbB9DCE9aE57zkHjSmseszh6e.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/deLWkOLZmBNkm8p16igfapQyqeq.jpg",
+      "trailers": {
+        "en": "iM150ZWovZM"
+      },
+      "default_lang": "en",
+      "original_lang": "en",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "A young woman's marriage to a charming prince turns into a fierce fight for survival when she's offered up as a sacrifice to a fire-breathing dragon.",
+      "title_en": "Damsel",
+      "language_name": "English"
+    },
+    {
+      "slug": "ghost-soldier",
+      "title": "Ghost Soldier",
+      "year": 2026,
+      "director": "William Eubank",
+      "cast": "Jim Caviezel, Olivia Thirlby, Beau Knapp, Garret Dillahunt, Shea Whigham",
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "genres_formatted": "Action • Thriller",
+      "tmdb_id": 1562642,
+      "poster_url": "https://image.tmdb.org/t/p/w780/8Y4oJ5iUs3hgPcDB3SIEmsNYjZk.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/ggqvhSdAASrseKuMlzk51sbvbE8.jpg",
+      "trailers": {
+        "en": "UKaWzMf9Ybc"
+      },
+      "default_lang": "en",
+      "original_lang": "en",
+      "is_now_showing": true,
+      "badge_text": "NOW SHOWING IN THEATRES",
+      "overview": "Henry “Fitz” Fitzgerald has spent years living quietly off the grid, hiding from a past few people know anything about. But when a powerful foreign corporation moves into his hometown to seize his neighbors’ land for a massive payday, Fitz is forced to reveal who he really is: a former Special Forces soldier and advanced weapons developer. Armed with experimental technology, lethal combat skills, and an unwavering code of justice, Fitz wages a one-man war against an enemy that never saw him coming.",
+      "title_en": "Ghost Soldier",
+      "language_name": "English"
+    },
+    {
+      "slug": "wildwood",
+      "title": "Wildwood",
+      "year": 2026,
+      "director": "Travis Knight",
+      "cast": "Peyton Elizabeth Lee, Jacob Tremblay, Carey Mulligan, Mahershala Ali, Richard E. Grant",
+      "genres": [
+        "Animation",
+        "Fantasy",
+        "Adventure"
+      ],
+      "genres_formatted": "Animation • Fantasy • Adventure",
+      "tmdb_id": 791523,
+      "poster_url": "https://image.tmdb.org/t/p/w780/snFM00mpNAfUzUtkdEW0uDEvXA0.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/sl5NJ1vtyhP9Vr88bB4blULsJYp.jpg",
+      "trailers": {
+        "en": "bJQGtSeLPII"
+      },
+      "default_lang": "en",
+      "original_lang": "en",
+      "is_now_showing": true,
+      "badge_text": "NOW SHOWING IN THEATRES",
+      "overview": "Prue and her classmate Curtis are drawn into a magical forest filled with enchanted creatures, loyal allies, and formidable adversaries as they embark on a desperate quest to rescue Prue's abducted baby brother from a murder of crows led by a mysterious woman named Alexandra.",
+      "title_en": "Wildwood",
+      "language_name": "English"
+    }
+  ],
+  "hi": [
+    {
+      "slug": "ramayana-part-1",
+      "title": "Ramayana: Part 1",
+      "year": 2026,
+      "director": "Nitesh Tiwari",
+      "cast": "Ranbir Kapoor, Sai Pallavi, Yash, Sunny Deol, Ravie Dubey",
+      "genres": [
+        "Action",
+        "Drama",
+        "Mythology"
+      ],
+      "genres_formatted": "Action • Drama • Mythology",
+      "tmdb_id": 656908,
+      "poster_url": "https://image.tmdb.org/t/p/w780/vBQ7wks68OhJKlb3RnXSl2yXBXK.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/original/yHVZncPRZr63mezRX20IyKLrSkv.jpg",
+      "trailers": {
+        "hi": "1zip1rNaNYs",
+        "ta": "K7zjRJ_0sgk",
+        "te": "bL5CBbMQghQ",
+        "kn": "edgXQeM6uO8",
+        "ml": "U05xJjT0aoc",
+        "en": "74nF-FWAS6M"
+      },
+      "trailers_todo": "Verified official multilingual teaser/trailer IDs by Prime Focus Studios / Namit Malhotra",
+      "default_lang": "hi",
+      "is_now_showing": true,
+      "is_default_center": true,
+      "badge_text": "NOW SHOWING IN THEATRES",
+      "release_date": "2026-11-05",
+      "overview": "An ancient epic follows Prince Rama and Princess Sita whose devotion, exile, and war against the demon king Ravana become a legendary journey of righteousness across worlds.",
+      "title_en": "Ramayana: Part 1",
+      "language_name": "Hindi",
+      "poster_large_url": "https://image.tmdb.org/t/p/w780/vBQ7wks68OhJKlb3RnXSl2yXBXK.jpg"
+    },
+    {
+      "slug": "brahmastra-part-one-shiva",
+      "title": "Brahmastra Part One: Shiva",
+      "year": 2022,
+      "director": "Ayan Mukerji",
+      "cast": "Ranbir Kapoor, Alia Bhatt, Amitabh Bachchan, Mouni Roy, Nagarjuna Akkineni",
+      "genres": [
+        "Fantasy",
+        "Adventure",
+        "Drama"
+      ],
+      "genres_formatted": "Fantasy • Adventure • Drama",
+      "tmdb_id": 496331,
+      "poster_url": "https://image.tmdb.org/t/p/w780/x61qdvHIsr9U53FwoLVDQqAGur0.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/9oAqll65ytlOBLzZwUwkmo5RwIK.jpg",
+      "trailers": {
+        "hi": "V5jVntRVl-0",
+        "te": "l54jYAncjdw",
+        "ta": "mhPb6wxXAfM",
+        "kn": "cM-z9kZwOAw",
+        "ml": "LAr8_zIsFPE",
+        "en": "JwZRx6IGL_k"
+      },
+      "trailers_todo": "TODO: Add official English trailer if released",
+      "default_lang": "hi",
+      "is_now_showing": false,
+      "is_default_center": false,
+      "overview": "A young disc jockey in Mumbai named Shiva learns about his supernatural connection to the celestial element of fire, and holds the secret to awakening the greatest divine weapon in creation.",
+      "title_en": "Brahmastra Part One: Shiva",
+      "language_name": "Hindi"
+    },
+    {
+      "slug": "sonic-the-hedgehog-3",
+      "title": "Sonic the Hedgehog 3",
+      "year": 2024,
+      "director": "Jeff Fowler",
+      "cast": "Ben Schwartz, Jim Carrey, Keanu Reeves, Idris Elba, Colleen O'Shaughnessey",
+      "genres": [
+        "Action",
+        "Science Fiction",
+        "Comedy",
+        "Family"
+      ],
+      "genres_formatted": "Action • Science Fiction • Comedy",
+      "tmdb_id": 939243,
+      "poster_url": "https://image.tmdb.org/t/p/w780/d8Ryb8AunYAuycVKDp5HpdWPKgC.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/zOpe0eHsq0A2NvNyBbtT6sj53qV.jpg",
+      "trailers": {
+        "en": "LH1J1EbqCaI"
+      },
+      "default_lang": "hi",
+      "original_lang": "en",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "Sonic, Knuckles, and Tails reunite against a powerful new adversary, Shadow, a mysterious villain with powers unlike anything they have faced before. With their abilities outmatched in every way, Team Sonic must seek out an unlikely alliance in hopes of stopping Shadow and protecting the planet.",
+      "title_en": "Sonic the Hedgehog 3",
+      "language_name": "Hindi"
+    },
+    {
+      "slug": "furiosa-a-mad-max-saga",
+      "title": "Furiosa: A Mad Max Saga",
+      "year": 2024,
+      "director": "George Miller",
+      "cast": "Anya Taylor-Joy, Chris Hemsworth, Tom Burke, Alyla Browne, George Shevtsov",
+      "genres": [
+        "Action",
+        "Science Fiction",
+        "Adventure"
+      ],
+      "genres_formatted": "Action • Science Fiction • Adventure",
+      "tmdb_id": 786892,
+      "poster_url": "https://image.tmdb.org/t/p/w780/iADOJ8Zymht2JPMoy3R7xceZprc.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/raph7qjAGTMXaIjVxt6ZDSXRzUr.jpg",
+      "trailers": {
+        "en": "LYV3001u574",
+        "hi": "IDMBmI4QJj4"
+      },
+      "default_lang": "hi",
+      "original_lang": "en",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "As the world falls, young Furiosa is snatched from the Green Place of Many Mothers into the hands of a great biker horde led by the warlord Dementus. Sweeping through the wasteland, they encounter the citadel presided over by Immortan Joe. The two tyrants wage war for dominance, and Furiosa must survive many trials as she puts together the means to find her way home.",
+      "title_en": "Furiosa: A Mad Max Saga",
+      "language_name": "Hindi"
+    },
+    {
+      "slug": "hanuman-ansh",
+      "title": "Hanuman Ansh",
+      "year": 2026,
+      "director": "Vishal Chaturvedi",
+      "cast": "Shobhinaw Satyaa, Vihaan Shedge, Chandan Anand, Purnima Tiwari, Anil Rastogi",
+      "genres": [
+        "Family",
+        "Drama"
+      ],
+      "genres_formatted": "Family • Drama",
+      "tmdb_id": 1709391,
+      "poster_url": "https://image.tmdb.org/t/p/w780/as2Y3zGUa2IUS3uAx2sh6Ano3es.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/tKYOK8iMxkhJhug3LJ2yvC5QY8M.jpg",
+      "trailers": {
+        "en": "YpGhCA2X3gU"
+      },
+      "default_lang": "hi",
+      "original_lang": "hi",
+      "is_now_showing": true,
+      "badge_text": "NOW SHOWING IN THEATRES",
+      "overview": "A grieving boy seeks God to meet his departed mother, and in finding the divine, learns to serve humanity with miracles of love, food and silent blessings, becoming Hanuman Ansh, Neem Karoli Baba.",
+      "title_en": "Hanuman Ansh",
+      "language_name": "Hindi"
+    },
+    {
+      "slug": "udta-teer",
+      "title": "Udta Teer",
+      "year": 2026,
+      "director": "Aakash Kaushik",
+      "cast": "Ayushmann Khurrana, Sara Ali Khan, Rahul Bose, Supriya Pilgaonkar, Brijendra Kala",
+      "genres": [
+        "Comedy",
+        "Action"
+      ],
+      "genres_formatted": "Comedy • Action",
+      "tmdb_id": 1375156,
+      "poster_url": "https://image.tmdb.org/t/p/w780/tvICKypVlW7Iio4KVs7NousbSKi.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/ncVecUcDZe1EOWtHaU2f8BFvbx4.jpg",
+      "trailers": {
+        "hi": "hN_ZUElLH44"
+      },
+      "default_lang": "hi",
+      "original_lang": "hi",
+      "is_now_showing": true,
+      "badge_text": "NOW SHOWING IN THEATRES",
+      "overview": "An amnesiac Pakistani spy wakes up believing he is a patriotic Indian counter-terrorism officer.",
+      "title_en": "Udta Teer",
+      "language_name": "Hindi"
+    }
+  ],
+  "kn": [
+    {
+      "slug": "kantara",
+      "title": "Kantara",
+      "year": 2022,
+      "director": "Rishab Shetty",
+      "cast": "Rishab Shetty, Sapthami Gowda, Kishore, Achyuth Kumar, Pramod Shetty",
+      "genres": [
+        "Action",
+        "Drama",
+        "Mythology"
+      ],
+      "genres_formatted": "Action • Drama • Mythology",
+      "tmdb_id": 858485,
+      "poster_url": "https://image.tmdb.org/t/p/w780/jIsKmkxMzdCZ0Ux1GVSnu8m6Na6.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/kXElm7wt2kAXEVwJqW4cFhP43nW.jpg",
+      "trailers": {
+        "kn": "8mrVmf239GU",
+        "hi": "6oKFao0aISA",
+        "te": "axBF-4nNZ3s",
+        "ta": "gKJMgeEvSyE",
+        "ml": "qGWJSY9UXZ0",
+        "en": ""
+      },
+      "trailers_todo": "TODO: Add official English trailer if released",
+      "default_lang": "kn",
+      "is_now_showing": false,
+      "is_default_center": false,
+      "overview": "When greed paves the way for betrayal, scheming and murder, a young tribal man reluctantly dons the traditions of his ancestors to seek divine justice in a sacred coastal forest.",
+      "title_en": "Kantara",
+      "language_name": "Kannada"
+    },
+    {
+      "slug": "sapta-sagaradaache-ello-side-a",
+      "title": "Sapta Sagaradaache Ello Side A",
+      "year": 2023,
+      "director": "Hemanth M Rao",
+      "cast": "Rakshit Shetty, Rukmini Vasanth, Chaithra J. Achar, Achyuth Kumar, Pavitra Lokesh",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "genres_formatted": "Drama • Romance",
+      "tmdb_id": 1168104,
+      "poster_url": "https://image.tmdb.org/t/p/w780/qjvSMN5dhSh7cymjj6if2aJ4ejW.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/3J1V1rSV0Rlk5AGsMO7ahD92spD.jpg",
+      "trailers": {
+        "kn": "hcJ1ZHHahMA",
+        "te": "",
+        "ta": "",
+        "ml": "",
+        "hi": "",
+        "en": "hcJ1ZHHahMA"
+      },
+      "trailers_todo": "TODO: Add regional dub trailer IDs (Paramvah Studios / People Media Factory)",
+      "default_lang": "kn",
+      "is_now_showing": false,
+      "is_default_center": false,
+      "overview": "Manu and Priya share an intense, poetic love and dream of a peaceful seaside life together, but an impulsive decision lands Manu in prison, testing the depths of their bonds across time.",
+      "title_en": "Sapta Sagaradaache Ello Side A",
+      "language_name": "Kannada"
+    },
+    {
+      "slug": "resident-evil-death-island",
+      "title": "Resident Evil: Death Island",
+      "year": 2023,
+      "director": "Eiichiro Hasumi",
+      "cast": "Matthew Mercer, Nicole Tompkins, Kevin Dorman, Stephanie Panisello, Erin Cahill",
+      "genres": [
+        "Action",
+        "Animation",
+        "Science Fiction",
+        "Horror"
+      ],
+      "genres_formatted": "Action • Animation • Science Fiction",
+      "tmdb_id": 1083862,
+      "poster_url": "https://image.tmdb.org/t/p/w780/qayga07ICNDswm0cMJ8P3VwklFZ.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/7drO1kYgQ0PnnU87sAnBEphYrSM.jpg",
+      "trailers": {
+        "en": "L-vkuA8oqMY"
+      },
+      "default_lang": "kn",
+      "original_lang": "ja",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "In San Francisco, Jill Valentine is dealing with a zombie outbreak and a new T-Virus, Leon Kennedy is on the trail of a kidnapped DARPA scientist, and Claire Redfield is investigating a monstrous fish that is killing whales in the bay. Joined by Chris Redfield and Rebecca Chambers, they discover the trail of clues from their separate cases all converge on the same location, Alcatraz Island, where a new evil has taken residence and awaits their arrival.",
+      "title_en": "Resident Evil: Death Island",
+      "language_name": "Kannada"
+    },
+    {
+      "slug": "toxic",
+      "title": "Toxic",
+      "year": 2026,
+      "director": "Geetu Mohandas",
+      "cast": "Yash, Kiara Advani, Nayanthara, Huma Qureshi, Tara Sutaria",
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "genres_formatted": "Action • Crime • Drama",
+      "tmdb_id": 1213243,
+      "poster_url": "https://image.tmdb.org/t/p/w780/5RTd3YCLWbEhbe9OXRuNX3pbT5U.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/tBRSSfgqOAq7YlG8udcoJIBm2FG.jpg",
+      "trailers": {
+        "en": "EfluEyQ5QIA",
+        "hi": "G5hWlD5zfhw",
+        "ta": "f5M1d7r2UNQ",
+        "kn": "sJwaiRN-rvc",
+        "te": "0safa-gtIgQ"
+      },
+      "default_lang": "kn",
+      "original_lang": "kn",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "A powerful drug cartel pulls the strings behind a facade of sun-soaked beaches as a gritty, violent underworld power struggle emerges during the crumbling of Portuguese colonial rule.",
+      "title_en": "Toxic",
+      "language_name": "Kannada"
+    },
+    {
+      "slug": "kgf-chapter-2",
+      "title": "K.G.F: Chapter 2",
+      "year": 2022,
+      "director": "Prashanth Neel",
+      "cast": "Yash, Sanjay Dutt, Raveena Tandon, Srinidhi Shetty, Archana Jois",
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "genres_formatted": "Action • Thriller",
+      "tmdb_id": 587412,
+      "poster_url": "https://image.tmdb.org/t/p/w500/khNVygolU0TxLIDWff5tQlAhZ23.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/nsV5Mfi9FAV4w8eDsdr7uqVswOk.jpg",
+      "trailers": {
+        "hi": "JKa05nyUmuQ",
+        "te": "bDTUFufX-1s",
+        "ta": "tLeTx5OdjZs",
+        "kn": "jQsE85cI384",
+        "en": "Qah9sSIXJqk"
+      },
+      "default_lang": "kn",
+      "original_lang": "kn",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "The blood-soaked land of Kolar Gold Fields (KGF) has a new overlord now - Rocky, whose name strikes fear in the heart of his foes. His allies look up to Rocky as their Savior, the government sees him as a threat to law and order; enemies are clamoring for revenge and conspiring for his downfall. Bloodier battles and darker days await as Rocky continues on his quest for unchallenged supremacy.",
+      "title_en": "K.G.F: Chapter 2",
+      "language_name": "Kannada",
+      "poster_large_url": "https://image.tmdb.org/t/p/w780/khNVygolU0TxLIDWff5tQlAhZ23.jpg"
+    },
+    {
+      "slug": "kantara-a-legend-chapter-1",
+      "title": "Kantara - A Legend: Chapter 1",
+      "year": 2025,
+      "director": "Rishab Shetty",
+      "cast": "Rishab Shetty, Rukmini Vasanth, Jayaram, Gulshan Devaiah, Ramitha Shailendra",
+      "genres": [
+        "Action",
+        "Drama",
+        "Fantasy"
+      ],
+      "genres_formatted": "Action • Drama • Fantasy",
+      "tmdb_id": 1083637,
+      "poster_url": "https://image.tmdb.org/t/p/w780/ehQPboTPaIMkMUOoNOh8e7pZ5Rp.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/w57nxiBIODAYHLRs1xmrCY9zEFe.jpg",
+      "trailers": {
+        "hi": "l4YbJ2NRdTE",
+        "en": "TMQUFhWm8C0"
+      },
+      "default_lang": "kn",
+      "original_lang": "kn",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "While exploring Kantara's mystical forest, Bangra's King Vijayendra dies during the Kadamba reign. Rajashekara seals their realm. Prince Kulashekara massacres to reopen it. Berme, seeking wealth, crosses the divide.",
+      "title_en": "Kantara - A Legend: Chapter 1",
+      "language_name": "Kannada"
+    }
+  ],
+  "ta": [
+    {
+      "slug": "spider-man-brand-new-day",
+      "title": "Spider-Man: Brand New Day",
+      "year": 2026,
+      "director": "Destin Daniel Cretton",
+      "cast": "Tom Holland, Sadie Sink, Tramell Tillman, Zendaya, Jacob Batalon",
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure"
+      ],
+      "genres_formatted": "Science Fiction • Action • Adventure",
+      "tmdb_id": 969681,
+      "poster_url": "https://image.tmdb.org/t/p/w780/bjiS5ipwxb9JFy3XRRN4OAilSeX.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/4tjxYg2AbOzzG9G1YuiT2NzYhlH.jpg",
+      "trailers": {
+        "te": "Us721-BD1Gg",
+        "en": "P3uI5sLosKU",
+        "hi": "QdLExXYsyQw",
+        "ta": "eY5bSz-o5xo"
+      },
+      "default_lang": "ta",
+      "original_lang": "en",
+      "is_now_showing": false,
+      "badge_text": "BLOCKBUSTER",
+      "overview": "Fighting crime full-time as Spider-Man in a world that doesn't remember him—and the pressure of seeing his old friends move on without him—sparks a change in Peter Parker he may not have the power to control. But that transformation might also be the only thing that can stop a shocking new threat to the city and those he loves - a powerful villain no one can even see.",
+      "title_en": "Spider-Man: Brand New Day",
+      "language_name": "Tamil"
+    },
+    {
+      "slug": "old-dads",
+      "title": "Old Dads",
+      "year": 2023,
+      "director": "Bill Burr",
+      "cast": "Bill Burr, Bobby Cannavale, Bokeem Woodbine, Katie Aselton, Reign Edwards",
+      "genres": [
+        "Comedy"
+      ],
+      "genres_formatted": "Comedy",
+      "tmdb_id": 987917,
+      "poster_url": "https://image.tmdb.org/t/p/w780/krA2iXd1PK1vhg4jeWfbSD4fSJi.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/8G50Gbincsi1WYJXTyqsFuXNyK.jpg",
+      "trailers": {
+        "en": "mU01e6KjM2s"
+      },
+      "default_lang": "ta",
+      "original_lang": "en",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "A cranky middle-aged dad and his two best friends find themselves out of step in a changing world of millennial CEOs and powerful preschool principals.",
+      "title_en": "Old Dads",
+      "language_name": "Tamil"
+    },
+    {
+      "slug": "restart-the-earth",
+      "title": "Restart the Earth",
+      "year": 2021,
+      "director": "Lin Zhenzhao",
+      "cast": "He Shengming, Luo Mi, Michelle Ye Xuan, Yu Rongguang, Li Ning",
+      "genres": [
+        "Science Fiction",
+        "Horror",
+        "Action"
+      ],
+      "genres_formatted": "Science Fiction • Horror • Action",
+      "tmdb_id": 870096,
+      "poster_url": "https://image.tmdb.org/t/p/w780/kl80N1g69v9QXe1wvkFza31WhD4.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/rBXrCUya6Xj5wJeGAVXzHdMPNXH.jpg",
+      "trailers": {
+        "en": "eAOEHkyhIKw"
+      },
+      "default_lang": "ta",
+      "original_lang": "zh",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "When a drug to replicate plant cells creates a sentient form of flower, the planet is over taken by flora and humankind is depleted. A Chinese task force, a widowed father and his young daughter fight to survive in a mission to inject an antidote to the core of the plants to reverse their growth.",
+      "title_en": "Restart the Earth",
+      "language_name": "Tamil"
+    },
+    {
+      "slug": "troll",
+      "title": "Troll",
+      "year": 2022,
+      "director": "Roar Uthaug",
+      "cast": "Ine Marie Wilmann, Kim S. Falck-Jørgensen, Mads Sjøgård Pettersen, Gard B. Eidsvold, Anneke von der Lippe",
+      "genres": [
+        "Fantasy",
+        "Action",
+        "Adventure"
+      ],
+      "genres_formatted": "Fantasy • Action • Adventure",
+      "tmdb_id": 736526,
+      "poster_url": "https://image.tmdb.org/t/p/w780/ulgKdif3ubMACDltr8VZy6fyVjW.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/ml2Nl1JzWV0WlniVuF5YLrYt1ot.jpg",
+      "trailers": {
+        "en": "AiohkY_XQYQ"
+      },
+      "default_lang": "ta",
+      "original_lang": "no",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "When an explosion in the Norwegian mountains awakens an ancient troll, officials appoint a fearless paleontologist to stop it from wreaking deadly havoc.",
+      "title_en": "Troll",
+      "language_name": "Tamil"
+    },
+    {
+      "slug": "jailer-2",
+      "title": "Jailer 2",
+      "year": 2026,
+      "director": "Nelson",
+      "cast": "Rajinikanth, S. J. Suryah, Suraj Venjaramoodu, Ramya Krishnan, Vidya Balan",
+      "genres": [
+        "Action",
+        "Comedy",
+        "Drama"
+      ],
+      "genres_formatted": "Action • Comedy • Drama",
+      "tmdb_id": 1234139,
+      "poster_url": "https://image.tmdb.org/t/p/w780/upwdEyhhYZ7pT2hD535fr2MGfpx.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/m0ks2o59mOAz6WdCybJ5FAUNTOU.jpg",
+      "trailers": {
+        "en": "3vkHWYL2JmA",
+        "te": "-mYAvoEvX7I",
+        "ta": "FW_PPcr1sPE",
+        "hi": "YN5ddNbh8M8"
+      },
+      "default_lang": "ta",
+      "original_lang": "ta",
+      "is_now_showing": true,
+      "badge_text": "NOW SHOWING IN THEATRES",
+      "overview": "When a dangerous syndicate threatens his family, retired jailer Tiger Muthuvel Pandian goes undercover as a driver to battle enemies from the shadows.",
+      "title_en": "Jailer 2",
+      "language_name": "Tamil"
+    },
+    {
+      "slug": "mookuthi-amman-2",
+      "title": "Mookuthi Amman 2",
+      "year": 2026,
+      "director": "Sundar C",
+      "cast": "Nayanthara, Urvashi, Regena Cassandrra, Yogi Babu, Duniya Vijay",
+      "genres": [
+        "Fantasy",
+        "Drama",
+        "Comedy"
+      ],
+      "genres_formatted": "Fantasy • Drama • Comedy",
+      "tmdb_id": 1327835,
+      "poster_url": "https://image.tmdb.org/t/p/w780/dNNzsstJeQxnESyH0hZcLGblLMz.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/mxrT9YpOPuLq2PpSehAuCGCqu8r.jpg",
+      "trailers": {
+        "kn": "WQdt1-ITcGA",
+        "te": "F8nhFSTH50g",
+        "ta": "v263z3rTcLw",
+        "hi": "YVzn7IoUuJo"
+      },
+      "default_lang": "ta",
+      "original_lang": "ta",
+      "is_now_showing": true,
+      "badge_text": "NOW SHOWING IN THEATRES",
+      "overview": "A queen sacrifices herself to protect her son, the prince, from invading enemies.Mookuthi Amman returns to protect the child and confronts a mysterious woman who embodies a new and dangerous evil.",
+      "title_en": "Mookuthi Amman 2",
+      "language_name": "Tamil"
+    }
+  ],
+  "te": [
+    {
+      "slug": "rrr",
+      "title": "RRR",
+      "year": 2022,
+      "director": "S. S. Rajamouli",
+      "cast": "N.T. Rama Rao Jr., Ram Charan, Olivia Morris, Ray Stevenson, Alison Doody",
+      "genres": [
+        "Action",
+        "History",
+        "Drama"
+      ],
+      "genres_formatted": "Action • History • Drama",
+      "tmdb_id": 579974,
+      "poster_url": "https://image.tmdb.org/t/p/w500/wE0I6efAW4cDDmZQWtwZMOW44EJ.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/i0Y0wP8H6SRgjr6QmuwbtQbS24D.jpg",
+      "trailers": {
+        "en": "i4pjiLGUTtk",
+        "ta": "oO8TTM2FgIA",
+        "te": "NgBoMJy386M",
+        "hi": "f_vbAtFSEc0",
+        "kn": "fRyTH-ia2PM"
+      },
+      "default_lang": "te",
+      "original_lang": "te",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "A fictional history of two legendary revolutionaries' journey away from home before they began fighting for their country in the 1920s.",
+      "title_en": "RRR",
+      "language_name": "Telugu",
+      "poster_large_url": "https://image.tmdb.org/t/p/w780/wE0I6efAW4cDDmZQWtwZMOW44EJ.jpg"
+    },
+    {
+      "slug": "migration",
+      "title": "Migration",
+      "year": 2023,
+      "director": "Benjamin Renner",
+      "cast": "Kumail Nanjiani, Elizabeth Banks, Caspar Jennings, Tresi Gazal, Awkwafina",
+      "genres": [
+        "Family",
+        "Comedy",
+        "Adventure",
+        "Animation"
+      ],
+      "genres_formatted": "Family • Comedy • Adventure",
+      "tmdb_id": 940551,
+      "poster_url": "https://image.tmdb.org/t/p/w780/ldfCF9RhR40mppkzmftxapaHeTo.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/d1ECsrOqB17DamTMPtiUTd6HdXd.jpg",
+      "trailers": {
+        "en": "hWbfohXIdEU"
+      },
+      "default_lang": "te",
+      "original_lang": "en",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "After a migrating duck family alights on their pond with thrilling tales of far-flung places, the Mallard family embarks on a family road trip, from New England, to New York City, to tropical Jamaica.",
+      "title_en": "Migration",
+      "language_name": "Telugu"
+    },
+    {
+      "slug": "something-in-the-water",
+      "title": "Something in the Water",
+      "year": 2024,
+      "director": "Hayley Easton Street",
+      "cast": "Hiftu Quasem, Natalie Mitson, Lauren Lyle, Nicole Rieko Setsuko, Ellouise Shakespeare-Hart",
+      "genres": [
+        "Thriller",
+        "Horror"
+      ],
+      "genres_formatted": "Thriller • Horror",
+      "tmdb_id": 804616,
+      "poster_url": "https://image.tmdb.org/t/p/w780/tCA4O5CwZWLaryAGKQrbfvFbaWZ.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/2XCmJWRZIQtHzikNsW29l9oy5Fb.jpg",
+      "trailers": {
+        "en": "dfWv4KO8GOM"
+      },
+      "default_lang": "te",
+      "original_lang": "en",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "After lesbian couple Meg and Kayla split following a traumatic homophobic incident, their three friends are intent on mending the rift during the wedding of Lizzie at a paradise resort. But a pre-wedding boat excursion turns to disaster and the wedding breakfast is likely to be the five girls!",
+      "title_en": "Something in the Water",
+      "language_name": "Telugu"
+    },
+    {
+      "slug": "ranabaali",
+      "title": "Ranabaali",
+      "year": 2026,
+      "director": "Rahul Sankrityan",
+      "cast": "Vijay Deverakonda, Rashmika Mandanna, Arnold Vosloo, Easwari Rao, Vinod Sagar",
+      "genres": [
+        "History",
+        "Action",
+        "Drama"
+      ],
+      "genres_formatted": "History • Action • Drama",
+      "tmdb_id": 1389379,
+      "poster_url": "https://image.tmdb.org/t/p/w780/cXaCyYYbafVyMrs8rwKmxezBYPJ.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/xpImgnsxuqb3VOp0QRtXTS5uBRi.jpg",
+      "trailers": {
+        "en": "4AejYUbJiDs",
+        "kn": "KGTq4fAbhhM",
+        "ta": "XZRAORPWx4c",
+        "hi": "dGXcL2_jFKU",
+        "te": "W8EKIHOq9h8"
+      },
+      "default_lang": "te",
+      "original_lang": "te",
+      "is_now_showing": true,
+      "badge_text": "NOW SHOWING IN THEATRES",
+      "overview": "Set in 19th-century British India, a fierce leader rises from a drought-stricken land to fight colonial oppression and atrocities.",
+      "title_en": "Ranabaali",
+      "language_name": "Telugu"
+    },
+    {
+      "slug": "dnk",
+      "title": "DNK",
+      "year": 2026,
+      "director": "Sreenu Kambala",
+      "cast": "Mouli, Sushmita Shetty, Ali, Raghu Babu, Rajitha",
+      "genres": [
+        "Comedy",
+        "Crime"
+      ],
+      "genres_formatted": "Comedy • Crime",
+      "tmdb_id": 1641520,
+      "poster_url": "https://image.tmdb.org/t/p/w780/gi22AKV54XFUpbD06ROphN02A8a.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/sdqt5U97QRDLMgKyn5dXfpQjrGp.jpg",
+      "trailers": {
+        "te": "EaODp3C7wkU"
+      },
+      "default_lang": "te",
+      "original_lang": "te",
+      "is_now_showing": true,
+      "badge_text": "NOW SHOWING IN THEATRES",
+      "overview": "A young man with a compulsive stealing habit brings trouble upon his family, who must deal with the consequences of his actions.",
+      "title_en": "DNK",
+      "language_name": "Telugu"
+    },
+    {
+      "slug": "comrade-kalyan",
+      "title": "Comrade Kalyan",
+      "year": 2026,
+      "director": "Janakiram Marella",
+      "cast": "Sree Vishnu, Mahima Nambiar, Upendra Limaye, Shine Tom Chacko, Radhika Sarathkumar",
+      "genres": [
+        "Romance",
+        "Action",
+        "Drama"
+      ],
+      "genres_formatted": "Romance • Action • Drama",
+      "tmdb_id": 1428295,
+      "poster_url": "https://image.tmdb.org/t/p/w780/pvRJWA4WnaoPeQ7Fs7G9P7EKu6h.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/zsAbkmTkGE3l98Jhvdiy7ybNFo8.jpg",
+      "trailers": {
+        "en": "_BpLjq8wW5I",
+        "te": "QTz5PqZspEs"
+      },
+      "default_lang": "te",
+      "original_lang": "te",
+      "is_now_showing": true,
+      "badge_text": "NOW SHOWING IN THEATRES",
+      "overview": "In a naxal-dominated village on the Andhra-Odisha border, a theatre owner uses communist sentiment to keep his old cinema running. He joins the naxals and kidnaps a leader, setting off a chain of events.",
+      "title_en": "Comrade Kalyan",
+      "language_name": "Telugu"
+    }
+  ],
+  "ml": [
+    {
+      "slug": "longlegs",
+      "title": "Longlegs",
+      "year": 2024,
+      "director": "Osgood Perkins",
+      "cast": "Maika Monroe, Nicolas Cage, Blair Underwood, Alicia Witt, Michelle Choi-Lee",
+      "genres": [
+        "Crime",
+        "Horror",
+        "Mystery"
+      ],
+      "genres_formatted": "Crime • Horror • Mystery",
+      "tmdb_id": 1226578,
+      "poster_url": "https://image.tmdb.org/t/p/w780/1EwNyiiNFd863H4e8nWEzutnZD7.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/4CmxmxgiFdTaNmsscochV9rBcnF.jpg",
+      "trailers": {
+        "en": "FXOtkvx25gI"
+      },
+      "default_lang": "ml",
+      "original_lang": "en",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "FBI Agent Lee Harker is a gifted new recruit assigned to the unsolved case of an elusive serial killer. As the case takes complex turns, unearthing evidence of the occult, Harker discovers a personal connection to the merciless killer and must race against time to stop him before he claims the lives of another innocent family.",
+      "title_en": "Longlegs",
+      "language_name": "Malayalam"
+    },
+    {
+      "slug": "upgraded",
+      "title": "Upgraded",
+      "year": 2024,
+      "director": "Carlson Young",
+      "cast": "Camila Mendes, Archie Renaux, Marisa Tomei, Lena Olin, Anthony Stewart Head",
+      "genres": [
+        "Romance",
+        "Comedy"
+      ],
+      "genres_formatted": "Romance • Comedy",
+      "tmdb_id": 1014590,
+      "poster_url": "https://image.tmdb.org/t/p/w780/uhOXS17gRpTwA85WsZLlYFK3rz0.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/77Fqz6PFCSnWySDOmEL6ZPcaYIl.jpg",
+      "trailers": {
+        "en": "P3_dj7BnHp8"
+      },
+      "default_lang": "ml",
+      "original_lang": "en",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "Ana is an ambitious intern dreaming of a career in the art world while trying to impress her demanding boss Claire. When she's upgraded to first class on a work trip, she meets handsome Will, and Ana pretends to be her boss– a white lie that sets off a glamorous chain of events, romance and opportunity, until her fib threatens to surface.",
+      "title_en": "Upgraded",
+      "language_name": "Malayalam"
+    },
+    {
+      "slug": "bethlehem-kudumba-unit",
+      "title": "Bethlehem Kudumba Unit",
+      "year": 2026,
+      "director": "Girish A. D.",
+      "cast": "Nivin Pauly, Mamitha Baiju, Sangeeth Prathap, Suresh Krishna, Bindu Panicker",
+      "genres": [
+        "Romance",
+        "Comedy",
+        "Drama"
+      ],
+      "genres_formatted": "Romance • Comedy • Drama",
+      "tmdb_id": 1508168,
+      "poster_url": "https://image.tmdb.org/t/p/w780/uaSZiH6yoGaVJcqzKtrfSkqDuHX.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/zms3m4kVz7RXmobU1B0nhrvUEmP.jpg",
+      "trailers": {
+        "te": "446aKMnlAhY",
+        "ta": "W0xDMF5uSNM"
+      },
+      "default_lang": "ml",
+      "original_lang": "ml",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "Ashley's homecoming from abroad takes an emotional turn when a wedding next door stirs memories of her first love, Justin.",
+      "title_en": "Bethlehem Kudumba Unit",
+      "language_name": "Malayalam"
+    },
+    {
+      "slug": "mollywood-times",
+      "title": "Mollywood Times",
+      "year": 2026,
+      "director": "Abhinav Sunder Nayak",
+      "cast": "Naslen, Roshan Shanavas, Althaf Salim, Sangeeth Prathap, Sharafudheen",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "genres_formatted": "Comedy • Drama",
+      "tmdb_id": 1248251,
+      "poster_url": "https://image.tmdb.org/t/p/w780/zUBCBtMsQ8dxnhJhhng4C8U80IU.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/wQwbainQ5CtPWbnwXX144rMIS4E.jpg",
+      "trailers": {
+        "hi": "1BwH4jpVv6c",
+        "en": "wO_LlRytRTk"
+      },
+      "default_lang": "ml",
+      "original_lang": "ml",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "Vineeth Madhavan tries hard to become Malayalam cinema's greatest horror filmmaker, but will the toxic industry affect his dream?",
+      "title_en": "Mollywood Times",
+      "language_name": "Malayalam"
+    },
+    {
+      "slug": "marco",
+      "title": "Marco",
+      "year": 2024,
+      "director": "Haneef Adeni",
+      "cast": "Unni Mukundan, Siddique, Ishan Shoukath, Jagadish, Abhimanyu Thilakan",
+      "genres": [
+        "Action",
+        "Crime",
+        "Thriller"
+      ],
+      "genres_formatted": "Action • Crime • Thriller",
+      "tmdb_id": 1186350,
+      "poster_url": "https://image.tmdb.org/t/p/w780/il3ao5gcF6fZNqo1o9o7lusmEyU.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/a6RkQIOZ6wThQOEDv6lHsfH53hD.jpg",
+      "trailers": {
+        "en": "AdwGOloQcAs"
+      },
+      "default_lang": "ml",
+      "original_lang": "ml",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "The adoptive son of the Adattu family, Marco, sets off on a ruthless quest for vengeance after his brother is brutally murdered, finding only betrayal, loss and unimaginable brutality at every step.",
+      "title_en": "Marco",
+      "language_name": "Malayalam"
+    },
+    {
+      "slug": "all-we-imagine-as-light",
+      "title": "All We Imagine as Light",
+      "year": 2024,
+      "director": "Payal Kapadia",
+      "cast": "Kani Kusruti, Divya Prabha, Chhaya Kadam, Hridhu Haroon, Azees Nedumangad",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "genres_formatted": "Drama • Romance",
+      "tmdb_id": 927547,
+      "poster_url": "https://image.tmdb.org/t/p/w780/ruImrzB4POsrgwCMozmOBV67zs5.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/xrIicBg0Ac4oQ6cwUPKJxwtqhOQ.jpg",
+      "trailers": {
+        "hi": "nmavWwfZftI",
+        "en": "Yf1jAx6VhZ8"
+      },
+      "default_lang": "ml",
+      "original_lang": "ml",
+      "is_now_showing": false,
+      "badge_text": "",
+      "overview": "In Mumbai, Nurse Prabha's routine is troubled when she receives an unexpected gift from her estranged husband. Her younger roommate, Anu, tries in vain to find a spot in the city to be intimate with her boyfriend. A trip to a beach town allows them to find a space for their desires to manifest.",
+      "title_en": "All We Imagine as Light",
+      "language_name": "Malayalam"
+    }
+  ]
+}

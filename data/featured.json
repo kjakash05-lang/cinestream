@@ -1,0 +1,128 @@
+[
+  {
+    "slug": "kantara",
+    "title": "Kantara",
+    "year": 2022,
+    "director": "Rishab Shetty",
+    "cast": "Rishab Shetty, Sapthami Gowda, Kishore, Achyuth Kumar, Pramod Shetty",
+    "genres": [
+      "Action",
+      "Drama",
+      "Mythology"
+    ],
+    "genres_formatted": "Action • Drama • Mythology",
+    "tmdb_id": 858485,
+    "poster_url": "https://image.tmdb.org/t/p/w780/jIsKmkxMzdCZ0Ux1GVSnu8m6Na6.jpg",
+    "backdrop_url": "https://image.tmdb.org/t/p/w1280/kXElm7wt2kAXEVwJqW4cFhP43nW.jpg",
+    "trailers": {
+      "kn": "8mrVmf239GU",
+      "hi": "6oKFao0aISA",
+      "te": "axBF-4nNZ3s",
+      "ta": "gKJMgeEvSyE",
+      "ml": "qGWJSY9UXZ0",
+      "en": ""
+    },
+    "trailers_todo": "TODO: Add official English trailer if released",
+    "default_lang": "kn",
+    "is_now_showing": false,
+    "is_default_center": false,
+    "overview": "When greed paves the way for betrayal, scheming and murder, a young tribal man reluctantly dons the traditions of his ancestors to seek divine justice in a sacred coastal forest.",
+    "title_en": "Kantara",
+    "language_name": "Kannada"
+  },
+  {
+    "slug": "ramayana-part-1",
+    "title": "Ramayana: Part 1",
+    "year": 2026,
+    "director": "Nitesh Tiwari",
+    "cast": "Ranbir Kapoor, Sai Pallavi, Yash, Sunny Deol, Ravie Dubey",
+    "genres": [
+      "Action",
+      "Drama",
+      "Mythology"
+    ],
+    "genres_formatted": "Action • Drama • Mythology",
+    "tmdb_id": 656908,
+    "poster_url": "https://image.tmdb.org/t/p/w780/vBQ7wks68OhJKlb3RnXSl2yXBXK.jpg",
+    "backdrop_url": "https://image.tmdb.org/t/p/original/yHVZncPRZr63mezRX20IyKLrSkv.jpg",
+    "trailers": {
+      "hi": "1zip1rNaNYs",
+      "ta": "K7zjRJ_0sgk",
+      "te": "bL5CBbMQghQ",
+      "kn": "edgXQeM6uO8",
+      "ml": "U05xJjT0aoc",
+      "en": "74nF-FWAS6M"
+    },
+    "trailers_todo": "Verified official multilingual teaser/trailer IDs by Prime Focus Studios / Namit Malhotra",
+    "default_lang": "hi",
+    "is_now_showing": true,
+    "is_default_center": true,
+    "badge_text": "NOW SHOWING IN THEATRES",
+    "release_date": "2026-11-05",
+    "overview": "An ancient epic follows Prince Rama and Princess Sita whose devotion, exile, and war against the demon king Ravana become a legendary journey of righteousness across worlds.",
+    "title_en": "Ramayana: Part 1",
+    "language_name": "Hindi",
+    "poster_large_url": "https://image.tmdb.org/t/p/w780/vBQ7wks68OhJKlb3RnXSl2yXBXK.jpg"
+  },
+  {
+    "slug": "brahmastra-part-one-shiva",
+    "title": "Brahmastra Part One: Shiva",
+    "year": 2022,
+    "director": "Ayan Mukerji",
+    "cast": "Ranbir Kapoor, Alia Bhatt, Amitabh Bachchan, Mouni Roy, Nagarjuna Akkineni",
+    "genres": [
+      "Fantasy",
+      "Adventure",
+      "Drama"
+    ],
+    "genres_formatted": "Fantasy • Adventure • Drama",
+    "tmdb_id": 496331,
+    "poster_url": "https://image.tmdb.org/t/p/w780/x61qdvHIsr9U53FwoLVDQqAGur0.jpg",
+    "backdrop_url": "https://image.tmdb.org/t/p/w1280/9oAqll65ytlOBLzZwUwkmo5RwIK.jpg",
+    "trailers": {
+      "hi": "V5jVntRVl-0",
+      "te": "l54jYAncjdw",
+      "ta": "mhPb6wxXAfM",
+      "kn": "cM-z9kZwOAw",
+      "ml": "LAr8_zIsFPE",
+      "en": ""
+    },
+    "trailers_todo": "TODO: Add official English trailer if released",
+    "default_lang": "hi",
+    "is_now_showing": false,
+    "is_default_center": false,
+    "overview": "A young disc jockey in Mumbai named Shiva learns about his supernatural connection to the celestial element of fire, and holds the secret to awakening the greatest divine weapon in creation.",
+    "title_en": "Brahmastra Part One: Shiva",
+    "language_name": "Hindi"
+  },
+  {
+    "slug": "sapta-sagaradaache-ello-side-a",
+    "title": "Sapta Sagaradaache Ello Side A",
+    "year": 2023,
+    "director": "Hemanth M Rao",
+    "cast": "Rakshit Shetty, Rukmini Vasanth, Chaithra J. Achar, Achyuth Kumar, Pavitra Lokesh",
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "genres_formatted": "Drama • Romance",
+    "tmdb_id": 1168104,
+    "poster_url": "https://image.tmdb.org/t/p/w780/qjvSMN5dhSh7cymjj6if2aJ4ejW.jpg",
+    "backdrop_url": "https://image.tmdb.org/t/p/w1280/3J1V1rSV0Rlk5AGsMO7ahD92spD.jpg",
+    "trailers": {
+      "kn": "hcJ1ZHHahMA",
+      "te": "",
+      "ta": "",
+      "ml": "",
+      "hi": "",
+      "en": ""
+    },
+    "trailers_todo": "TODO: Add regional dub trailer IDs (Paramvah Studios / People Media Factory)",
+    "default_lang": "kn",
+    "is_now_showing": false,
+    "is_default_center": false,
+    "overview": "Manu and Priya share an intense, poetic love and dream of a peaceful seaside life together, but an impulsive decision lands Manu in prison, testing the depths of their bonds across time.",
+    "title_en": "Sapta Sagaradaache Ello Side A",
+    "language_name": "Kannada"
+  }
+]

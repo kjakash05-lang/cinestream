@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineStream | Sign In & Sign Up</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍿</text></svg>">
+  <meta name="csrf-token" content="{{ csrf_token() if csrf_token else '' }}">
+  <style>
+    .auth-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: radial-gradient(circle at 50% 20%, rgba(229, 9, 20, 0.12) 0%, rgba(15, 15, 18, 0.98) 70%), #0d0e12;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+    }
+    .auth-header {
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .auth-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .auth-logo span { color: #e50914; }
+    .auth-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .auth-card {
+      width: 100%;
+      max-width: 440px;
+      background: rgba(24, 25, 32, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+    .auth-tabs {
+      display: flex;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 28px;
+    }
+    .auth-tab {
+      flex: 1;
+      text-align: center;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #8c8f9f;
+      background: none;
+      border: none;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.25s ease;
+    }
+    .auth-tab.active {
+      color: #fff;
+      border-bottom: 2px solid #e50914;
+    }
+    .auth-group {
+      margin-bottom: 20px;
+    }
+    .auth-label {
+      display: block;
+      font-size: 0.85rem;
+      color: #b3b5c6;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .auth-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 13px 16px;
+      background: rgba(15, 16, 22, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .auth-input:focus {
+      outline: none;
+      border-color: #e50914;
+      box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.2);
+    }
+    .auth-btn {
+      width: 100%;
+      padding: 14px;
+      background: #e50914;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      margin-top: 10px;
+    }
+    .auth-btn:hover { background: #f6121d; }
+    .auth-btn:active { transform: scale(0.99); }
+    .auth-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .auth-error {
+      display: none;
+      background: rgba(229, 9, 20, 0.15);
+      border: 1px solid rgba(229, 9, 20, 0.4);
+      color: #ff8a8f;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      margin-bottom: 20px;
+    }
+    .auth-success {
+      display: none;
+      background: rgba(46, 213, 115, 0.15);
+      border: 1px solid rgba(46, 213, 115, 0.4);
+      color: #2ed573;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      margin-bottom: 20px;
+    }
+    .auth-note {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 0.84rem;
+      color: #8c8f9f;
+    }
+    .auth-note a {
+      color: #e50914;
+      text-decoration: none;
+    }
+    .auth-note a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body class="auth-page">
+  <header class="auth-header">
+    <a href="/" class="auth-logo">Cine<span>Stream</span></a>
+    <a href="/" style="color: #b3b5c6; text-decoration: none; font-size: 0.9rem;">← Back to Movies</a>
+  </header>
+
+  <main class="auth-container">
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" id="tabSignIn">Sign In</button>
+        <button type="button" class="auth-tab" id="tabSignUp">Create Account</button>
+      </div>
+
+      <div class="auth-error" id="authError"></div>
+      <div class="auth-success" id="authSuccess"></div>
+
+      <!-- Sign In Form -->
+      <form id="signInForm">
+        <div class="auth-group">
+          <label class="auth-label" for="loginUsername">Username</label>
+          <input type="text" id="loginUsername" class="auth-input" placeholder="Your username" required autocomplete="username">
+        </div>
+        <div class="auth-group">
+          <label class="auth-label" for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" class="auth-input" placeholder="Your password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="auth-btn" id="loginSubmitBtn">Sign In</button>
+      </form>
+
+      <!-- Sign Up Form -->
+      <form id="signUpForm" style="display: none;">
+        <div class="auth-group">
+          <label class="auth-label" for="regUsername">Username</label>
+          <input type="text" id="regUsername" class="auth-input" placeholder="Choose a username" required autocomplete="username">
+        </div>
+        <div class="auth-group">
+          <label class="auth-label" for="regDisplayName">Display Name (Optional)</label>
+          <input type="text" id="regDisplayName" class="auth-input" placeholder="E.g. Alex" autocomplete="nickname">
+        </div>
+        <div class="auth-group">
+          <label class="auth-label" for="regPassword">Password (Min 6 chars)</label>
+          <input type="password" id="regPassword" class="auth-input" placeholder="Choose a secure password" minlength="6" required autocomplete="new-password">
+        </div>
+        <button type="submit" class="auth-btn" id="signupSubmitBtn">Create Free Account</button>
+      </form>
+
+      <p class="auth-note">
+        Your temporary watchlist and ratings will automatically merge into your account upon signing in.
+      </p>
+    </div>
+  </main>
+
+  <script>
+    const tabSignIn = document.getElementById('tabSignIn');
+    const tabSignUp = document.getElementById('tabSignUp');
+    const signInForm = document.getElementById('signInForm');
+    const signUpForm = document.getElementById('signUpForm');
+    const authError = document.getElementById('authError');
+    const authSuccess = document.getElementById('authSuccess');
+    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+
+    function showError(msg) {
+      authError.textContent = msg;
+      authError.style.display = 'block';
+      authSuccess.style.display = 'none';
+    }
+    function showSuccess(msg) {
+      authSuccess.textContent = msg;
+      authSuccess.style.display = 'block';
+      authError.style.display = 'none';
+    }
+    function clearAlerts() {
+      authError.style.display = 'none';
+      authSuccess.style.display = 'none';
+    }
+
+    tabSignIn.addEventListener('click', () => {
+      tabSignIn.classList.add('active');
+      tabSignUp.classList.remove('active');
+      signInForm.style.display = 'block';
+      signUpForm.style.display = 'none';
+      clearAlerts();
+    });
+
+    tabSignUp.addEventListener('click', () => {
+      tabSignUp.classList.add('active');
+      tabSignIn.classList.remove('active');
+      signUpForm.style.display = 'block';
+      signInForm.style.display = 'none';
+      clearAlerts();
+    });
+
+    // Check query params (?signup=1)
+    if (new URLSearchParams(window.location.search).get('signup') === '1') {
+      tabSignUp.click();
+    }
+
+    signInForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearAlerts();
+      const btn = document.getElementById('loginSubmitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Signing in...';
+
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken
+          },
+          body: JSON.stringify({ username, password })
+        });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          showSuccess('Signed in successfully! Redirecting...');
+          setTimeout(() => {
+            const redirect = new URLSearchParams(window.location.search).get('next') || '/';
+            window.location.href = redirect;
+          }, 800);
+        } else {
+          showError(data.error || 'Invalid username or password.');
+          btn.disabled = false;
+          btn.textContent = 'Sign In';
+        }
+      } catch (err) {
+        showError('Network error. Please try again.');
+        btn.disabled = false;
+        btn.textContent = 'Sign In';
+      }
+    });
+
+    signUpForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearAlerts();
+      const btn = document.getElementById('signupSubmitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Creating account...';
+
+      const username = document.getElementById('regUsername').value;
+      const displayName = document.getElementById('regDisplayName').value;
+      const password = document.getElementById('regPassword').value;
+
+      try {
+        const res = await fetch('/api/auth/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken
+          },
+          body: JSON.stringify({ username, password, display_name: displayName })
+        });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          showSuccess('Account created! Redirecting to setup your preferences...');
+          setTimeout(() => {
+            window.location.href = '/profile';
+          }, 1000);
+        } else {
+          showError(data.error || 'Failed to create account.');
+          btn.disabled = false;
+          btn.textContent = 'Create Free Account';
+        }
+      } catch (err) {
+        showError('Network error. Please try again.');
+        btn.disabled = false;
+        btn.textContent = 'Create Free Account';
+      }
+    });
+  </script>
+</body>
+</html>

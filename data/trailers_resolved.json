@@ -1,0 +1,779 @@
+{
+  "damsel": {
+    "slug": "damsel",
+    "title": "Damsel",
+    "year": 2024,
+    "tmdb_id": 763215,
+    "default_lang": "en",
+    "trailers": {
+      "en": "iM150ZWovZM"
+    },
+    "fallback_list": [
+      "iM150ZWovZM"
+    ],
+    "sources": {
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:40:55.839440+00:00"
+  },
+  "dune-part-two": {
+    "slug": "dune-part-two",
+    "title": "Dune: Part Two",
+    "year": 2024,
+    "tmdb_id": 693134,
+    "default_lang": "en",
+    "trailers": {
+      "en": "U2Qp5pL3ovA"
+    },
+    "fallback_list": [
+      "U2Qp5pL3ovA"
+    ],
+    "sources": {
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:40:55.495316+00:00"
+  },
+  "sapta-sagaradaache-ello-side-a": {
+    "slug": "sapta-sagaradaache-ello-side-a",
+    "title": "Saptha Sagaradache Ello",
+    "year": 2023,
+    "tmdb_id": 1168104,
+    "default_lang": "kn",
+    "trailers": {
+      "kn": "hcJ1ZHHahMA"
+    },
+    "fallback_list": [
+      "hcJ1ZHHahMA"
+    ],
+    "sources": {
+      "kn": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:40:55.493234+00:00"
+  },
+  "oppenheimer": {
+    "slug": "oppenheimer",
+    "title": "Oppenheimer",
+    "year": 2023,
+    "tmdb_id": 872585,
+    "default_lang": "en",
+    "trailers": {
+      "hi": "SdHe-JseJfQ",
+      "en": "qiuSBWVdgLI"
+    },
+    "fallback_list": [
+      "SdHe-JseJfQ",
+      "qiuSBWVdgLI"
+    ],
+    "sources": {
+      "hi": "manual_featured_json",
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:40:55.639703+00:00"
+  },
+  "alien-romulus": {
+    "slug": "alien-romulus",
+    "title": "Alien: Romulus",
+    "year": 2024,
+    "tmdb_id": 945961,
+    "default_lang": "en",
+    "trailers": {
+      "hi": "qpfpLDdOdQY",
+      "en": "x0XDEhP4MQs"
+    },
+    "fallback_list": [
+      "qpfpLDdOdQY",
+      "x0XDEhP4MQs"
+    ],
+    "sources": {
+      "hi": "manual_featured_json",
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:40:55.708511+00:00"
+  },
+  "kantara": {
+    "slug": "kantara",
+    "title": "Kantara",
+    "year": 2022,
+    "tmdb_id": 858485,
+    "default_lang": "kn",
+    "trailers": {
+      "hi": "6oKFao0aISA",
+      "kn": "8mrVmf239GU",
+      "ta": "gKJMgeEvSyE",
+      "te": "axBF-4nNZ3s",
+      "ml": "qGWJSY9UXZ0"
+    },
+    "fallback_list": [
+      "6oKFao0aISA",
+      "8mrVmf239GU",
+      "gKJMgeEvSyE",
+      "axBF-4nNZ3s",
+      "qGWJSY9UXZ0"
+    ],
+    "sources": {
+      "hi": "manual_featured_json",
+      "kn": "manual_featured_json",
+      "ta": "manual_featured_json",
+      "te": "manual_featured_json",
+      "ml": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:40:55.487882+00:00"
+  },
+  "brahmastra-part-one-shiva": {
+    "slug": "brahmastra-part-one-shiva",
+    "title": "Brahmāstra Part One: Shiva",
+    "year": 2022,
+    "tmdb_id": 496331,
+    "default_lang": "hi",
+    "trailers": {
+      "hi": "V5jVntRVl-0",
+      "kn": "cM-z9kZwOAw",
+      "ta": "mhPb6wxXAfM",
+      "te": "l54jYAncjdw",
+      "ml": "LAr8_zIsFPE"
+    },
+    "fallback_list": [
+      "V5jVntRVl-0",
+      "cM-z9kZwOAw",
+      "mhPb6wxXAfM",
+      "l54jYAncjdw",
+      "LAr8_zIsFPE"
+    ],
+    "sources": {
+      "hi": "manual_featured_json",
+      "kn": "manual_featured_json",
+      "ta": "manual_featured_json",
+      "te": "manual_featured_json",
+      "ml": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:40:55.491595+00:00"
+  },
+  "ramayana-part-1": {
+    "slug": "ramayana-part-1",
+    "title": "Ramayana: Part 1",
+    "year": 2026,
+    "tmdb_id": 656908,
+    "default_lang": "hi",
+    "trailers": {
+      "hi": "1zip1rNaNYs",
+      "kn": "edgXQeM6uO8",
+      "ta": "K7zjRJ_0sgk",
+      "te": "bL5CBbMQghQ",
+      "ml": "U05xJjT0aoc",
+      "en": "74nF-FWAS6M"
+    },
+    "fallback_list": [
+      "1zip1rNaNYs",
+      "edgXQeM6uO8",
+      "K7zjRJ_0sgk",
+      "bL5CBbMQghQ",
+      "U05xJjT0aoc",
+      "74nF-FWAS6M"
+    ],
+    "sources": {
+      "hi": "manual_featured_json",
+      "kn": "manual_featured_json",
+      "ta": "manual_featured_json",
+      "te": "manual_featured_json",
+      "ml": "manual_featured_json",
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:40:55.489584+00:00"
+  },
+  "ghost-soldier": {
+    "slug": "ghost-soldier",
+    "title": "Ghost Soldier",
+    "year": 2026,
+    "tmdb_id": 1562642,
+    "default_lang": "en",
+    "trailers": {
+      "en": "UKaWzMf9Ybc"
+    },
+    "fallback_list": [
+      "UKaWzMf9Ybc"
+    ],
+    "sources": {
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:20.206716+00:00"
+  },
+  "sonic-the-hedgehog-3": {
+    "slug": "sonic-the-hedgehog-3",
+    "title": "Sonic the Hedgehog 3",
+    "year": 2024,
+    "tmdb_id": 939243,
+    "default_lang": "hi",
+    "trailers": {
+      "en": "LH1J1EbqCaI"
+    },
+    "fallback_list": [
+      "LH1J1EbqCaI"
+    ],
+    "sources": {
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:20.222561+00:00"
+  },
+  "wildwood": {
+    "slug": "wildwood",
+    "title": "Wildwood",
+    "year": 2026,
+    "tmdb_id": 791523,
+    "default_lang": "en",
+    "trailers": {
+      "en": "bJQGtSeLPII"
+    },
+    "fallback_list": [
+      "bJQGtSeLPII"
+    ],
+    "sources": {
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:20.211946+00:00"
+  },
+  "hanuman-ansh": {
+    "slug": "hanuman-ansh",
+    "title": "Hanuman Ansh",
+    "year": 2026,
+    "tmdb_id": 1709391,
+    "default_lang": "hi",
+    "trailers": {
+      "en": "YpGhCA2X3gU"
+    },
+    "fallback_list": [
+      "YpGhCA2X3gU"
+    ],
+    "sources": {
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:20.430144+00:00"
+  },
+  "furiosa-a-mad-max-saga": {
+    "slug": "furiosa-a-mad-max-saga",
+    "title": "Furiosa: A Mad Max Saga",
+    "year": 2024,
+    "tmdb_id": 786892,
+    "default_lang": "hi",
+    "trailers": {
+      "hi": "IDMBmI4QJj4",
+      "en": "LYV3001u574"
+    },
+    "fallback_list": [
+      "IDMBmI4QJj4",
+      "LYV3001u574"
+    ],
+    "sources": {
+      "hi": "manual_featured_json",
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:20.429465+00:00"
+  },
+  "udta-teer": {
+    "slug": "udta-teer",
+    "title": "Udta Teer",
+    "year": 2026,
+    "tmdb_id": 1375156,
+    "default_lang": "hi",
+    "trailers": {
+      "hi": "hN_ZUElLH44"
+    },
+    "fallback_list": [
+      "hN_ZUElLH44"
+    ],
+    "sources": {
+      "hi": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:20.908031+00:00"
+  },
+  "resident-evil-death-island": {
+    "slug": "resident-evil-death-island",
+    "title": "Resident Evil: Death Island",
+    "year": 2023,
+    "tmdb_id": 1083862,
+    "default_lang": "kn",
+    "trailers": {
+      "en": "L-vkuA8oqMY"
+    },
+    "fallback_list": [
+      "L-vkuA8oqMY"
+    ],
+    "sources": {
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:20.928491+00:00"
+  },
+  "toxic": {
+    "slug": "toxic",
+    "title": "Toxic",
+    "year": 2026,
+    "tmdb_id": 1213243,
+    "default_lang": "kn",
+    "trailers": {
+      "hi": "G5hWlD5zfhw",
+      "kn": "sJwaiRN-rvc",
+      "ta": "f5M1d7r2UNQ",
+      "te": "0safa-gtIgQ",
+      "en": "EfluEyQ5QIA"
+    },
+    "fallback_list": [
+      "G5hWlD5zfhw",
+      "sJwaiRN-rvc",
+      "f5M1d7r2UNQ",
+      "0safa-gtIgQ",
+      "EfluEyQ5QIA"
+    ],
+    "sources": {
+      "hi": "manual_featured_json",
+      "kn": "manual_featured_json",
+      "ta": "manual_featured_json",
+      "te": "manual_featured_json",
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:21.251312+00:00"
+  },
+  "old-dads": {
+    "slug": "old-dads",
+    "title": "Old Dads",
+    "year": 2023,
+    "tmdb_id": 987917,
+    "default_lang": "ta",
+    "trailers": {
+      "en": "mU01e6KjM2s"
+    },
+    "fallback_list": [
+      "mU01e6KjM2s"
+    ],
+    "sources": {
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:44.651051+00:00"
+  },
+  "kantara-a-legend-chapter-1": {
+    "slug": "kantara-a-legend-chapter-1",
+    "title": "Kantara - A Legend: Chapter 1",
+    "year": 2025,
+    "tmdb_id": 1083637,
+    "default_lang": "kn",
+    "trailers": {
+      "hi": "l4YbJ2NRdTE",
+      "en": "TMQUFhWm8C0"
+    },
+    "fallback_list": [
+      "l4YbJ2NRdTE",
+      "TMQUFhWm8C0"
+    ],
+    "sources": {
+      "hi": "manual_featured_json",
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:44.485794+00:00"
+  },
+  "restart-the-earth": {
+    "slug": "restart-the-earth",
+    "title": "Restart the Earth",
+    "year": 2021,
+    "tmdb_id": 870096,
+    "default_lang": "ta",
+    "trailers": {
+      "en": "eAOEHkyhIKw"
+    },
+    "fallback_list": [
+      "eAOEHkyhIKw"
+    ],
+    "sources": {
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:44.826949+00:00"
+  },
+  "spider-man-brand-new-day": {
+    "slug": "spider-man-brand-new-day",
+    "title": "Spider-Man: Brand New Day",
+    "year": 2026,
+    "tmdb_id": 969681,
+    "default_lang": "ta",
+    "trailers": {
+      "hi": "QdLExXYsyQw",
+      "ta": "eY5bSz-o5xo",
+      "en": "P3uI5sLosKU"
+    },
+    "fallback_list": [
+      "QdLExXYsyQw",
+      "eY5bSz-o5xo",
+      "P3uI5sLosKU"
+    ],
+    "sources": {
+      "hi": "manual_featured_json",
+      "ta": "manual_featured_json",
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:44.495896+00:00"
+  },
+  "troll": {
+    "slug": "troll",
+    "title": "Troll",
+    "year": 2022,
+    "tmdb_id": 736526,
+    "default_lang": "ta",
+    "trailers": {
+      "en": "AiohkY_XQYQ"
+    },
+    "fallback_list": [
+      "AiohkY_XQYQ"
+    ],
+    "sources": {
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:45.166647+00:00"
+  },
+  "kgf-chapter-2": {
+    "slug": "kgf-chapter-2",
+    "title": "K.G.F: Chapter 2",
+    "year": 2022,
+    "tmdb_id": 587412,
+    "default_lang": "kn",
+    "trailers": {
+      "hi": "JKa05nyUmuQ",
+      "kn": "jQsE85cI384",
+      "ta": "tLeTx5OdjZs",
+      "te": "bDTUFufX-1s",
+      "en": "Qah9sSIXJqk"
+    },
+    "fallback_list": [
+      "JKa05nyUmuQ",
+      "jQsE85cI384",
+      "tLeTx5OdjZs",
+      "bDTUFufX-1s",
+      "Qah9sSIXJqk"
+    ],
+    "sources": {
+      "hi": "manual_featured_json",
+      "kn": "manual_featured_json",
+      "ta": "manual_featured_json",
+      "te": "manual_featured_json",
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:44.471316+00:00"
+  },
+  "jailer-2": {
+    "slug": "jailer-2",
+    "title": "Jailer 2",
+    "year": 2026,
+    "tmdb_id": 1234139,
+    "default_lang": "ta",
+    "trailers": {
+      "hi": "YN5ddNbh8M8",
+      "ta": "FW_PPcr1sPE",
+      "te": "-mYAvoEvX7I",
+      "en": "3vkHWYL2JmA"
+    },
+    "fallback_list": [
+      "YN5ddNbh8M8",
+      "FW_PPcr1sPE",
+      "-mYAvoEvX7I",
+      "3vkHWYL2JmA"
+    ],
+    "sources": {
+      "hi": "manual_featured_json",
+      "ta": "manual_featured_json",
+      "te": "manual_featured_json",
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:45.228011+00:00"
+  },
+  "mookuthi-amman-2": {
+    "slug": "mookuthi-amman-2",
+    "title": "Mookuthi Amman 2",
+    "year": 2026,
+    "tmdb_id": 1327835,
+    "default_lang": "ta",
+    "trailers": {
+      "kn": "WQdt1-ITcGA",
+      "ta": "v263z3rTcLw",
+      "te": "F8nhFSTH50g"
+    },
+    "fallback_list": [
+      "WQdt1-ITcGA",
+      "v263z3rTcLw",
+      "F8nhFSTH50g"
+    ],
+    "sources": {
+      "kn": "manual_featured_json",
+      "ta": "manual_featured_json",
+      "te": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:41:46.375968+00:00"
+  },
+  "migration": {
+    "slug": "migration",
+    "title": "Migration",
+    "year": 2023,
+    "tmdb_id": 940551,
+    "default_lang": "te",
+    "trailers": {
+      "en": "hWbfohXIdEU"
+    },
+    "fallback_list": [
+      "hWbfohXIdEU"
+    ],
+    "sources": {
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:42:08.985808+00:00"
+  },
+  "something-in-the-water": {
+    "slug": "something-in-the-water",
+    "title": "Something in the Water",
+    "year": 2024,
+    "tmdb_id": 804616,
+    "default_lang": "te",
+    "trailers": {
+      "en": "dfWv4KO8GOM"
+    },
+    "fallback_list": [
+      "dfWv4KO8GOM"
+    ],
+    "sources": {
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:42:09.066552+00:00"
+  },
+  "dnk": {
+    "slug": "dnk",
+    "title": "DNK",
+    "year": 2026,
+    "tmdb_id": 1641520,
+    "default_lang": "te",
+    "trailers": {
+      "te": "EaODp3C7wkU"
+    },
+    "fallback_list": [
+      "EaODp3C7wkU"
+    ],
+    "sources": {
+      "te": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:42:09.395913+00:00"
+  },
+  "comrade-kalyan": {
+    "slug": "comrade-kalyan",
+    "title": "Comrade Kalyan",
+    "year": 2026,
+    "tmdb_id": 1428295,
+    "default_lang": "te",
+    "trailers": {
+      "te": "QTz5PqZspEs"
+    },
+    "fallback_list": [
+      "QTz5PqZspEs"
+    ],
+    "sources": {
+      "te": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:42:09.552766+00:00"
+  },
+  "rrr": {
+    "slug": "rrr",
+    "title": "RRR",
+    "year": 2022,
+    "tmdb_id": 579974,
+    "default_lang": "te",
+    "trailers": {
+      "hi": "f_vbAtFSEc0",
+      "kn": "fRyTH-ia2PM",
+      "ta": "oO8TTM2FgIA",
+      "te": "NgBoMJy386M",
+      "en": "i4pjiLGUTtk"
+    },
+    "fallback_list": [
+      "f_vbAtFSEc0",
+      "fRyTH-ia2PM",
+      "oO8TTM2FgIA",
+      "NgBoMJy386M",
+      "i4pjiLGUTtk"
+    ],
+    "sources": {
+      "hi": "manual_featured_json",
+      "kn": "manual_featured_json",
+      "ta": "manual_featured_json",
+      "te": "manual_featured_json",
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:42:08.896741+00:00"
+  },
+  "longlegs": {
+    "slug": "longlegs",
+    "title": "Longlegs",
+    "year": 2024,
+    "tmdb_id": 1226578,
+    "default_lang": "ml",
+    "trailers": {
+      "en": "FXOtkvx25gI"
+    },
+    "fallback_list": [
+      "FXOtkvx25gI"
+    ],
+    "sources": {
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:42:10.028193+00:00"
+  },
+  "ranabaali": {
+    "slug": "ranabaali",
+    "title": "Ranabaali",
+    "year": 2026,
+    "tmdb_id": 1389379,
+    "default_lang": "te",
+    "trailers": {
+      "hi": "dGXcL2_jFKU",
+      "kn": "KGTq4fAbhhM",
+      "ta": "XZRAORPWx4c",
+      "te": "W8EKIHOq9h8",
+      "en": "4AejYUbJiDs"
+    },
+    "fallback_list": [
+      "dGXcL2_jFKU",
+      "KGTq4fAbhhM",
+      "XZRAORPWx4c",
+      "W8EKIHOq9h8",
+      "4AejYUbJiDs"
+    ],
+    "sources": {
+      "hi": "manual_featured_json",
+      "kn": "manual_featured_json",
+      "ta": "manual_featured_json",
+      "te": "manual_featured_json",
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:42:09.394161+00:00"
+  },
+  "upgraded": {
+    "slug": "upgraded",
+    "title": "Upgraded",
+    "year": 2024,
+    "tmdb_id": 1014590,
+    "default_lang": "ml",
+    "trailers": {
+      "en": "P3_dj7BnHp8"
+    },
+    "fallback_list": [
+      "P3_dj7BnHp8"
+    ],
+    "sources": {
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:42:11.212251+00:00"
+  },
+  "mollywood-times": {
+    "slug": "mollywood-times",
+    "title": "Mollywood Times",
+    "year": 2026,
+    "tmdb_id": 1248251,
+    "default_lang": "ml",
+    "trailers": {
+      "hi": "1BwH4jpVv6c",
+      "en": "wO_LlRytRTk"
+    },
+    "fallback_list": [
+      "1BwH4jpVv6c",
+      "wO_LlRytRTk"
+    ],
+    "sources": {
+      "hi": "manual_featured_json",
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:42:33.291806+00:00"
+  },
+  "bethlehem-kudumba-unit": {
+    "slug": "bethlehem-kudumba-unit",
+    "title": "Bethlehem Kudumba Unit",
+    "year": 2026,
+    "tmdb_id": 1508168,
+    "default_lang": "ml",
+    "trailers": {
+      "ta": "W0xDMF5uSNM",
+      "te": "446aKMnlAhY"
+    },
+    "fallback_list": [
+      "W0xDMF5uSNM",
+      "446aKMnlAhY"
+    ],
+    "sources": {
+      "ta": "manual_featured_json",
+      "te": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:42:33.275545+00:00"
+  },
+  "marco": {
+    "slug": "marco",
+    "title": "Marco",
+    "year": 2024,
+    "tmdb_id": 1186350,
+    "default_lang": "ml",
+    "trailers": {
+      "en": "AdwGOloQcAs"
+    },
+    "fallback_list": [
+      "AdwGOloQcAs"
+    ],
+    "sources": {
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:42:33.646510+00:00"
+  },
+  "all-we-imagine-as-light": {
+    "slug": "all-we-imagine-as-light",
+    "title": "All We Imagine as Light",
+    "year": 2024,
+    "tmdb_id": 927547,
+    "default_lang": "ml",
+    "trailers": {
+      "hi": "nmavWwfZftI",
+      "en": "Yf1jAx6VhZ8"
+    },
+    "fallback_list": [
+      "nmavWwfZftI",
+      "Yf1jAx6VhZ8"
+    ],
+    "sources": {
+      "hi": "manual_featured_json",
+      "en": "manual_featured_json"
+    },
+    "verified": false,
+    "updated_at": "2026-11-15T19:42:33.816897+00:00"
+  }
+}

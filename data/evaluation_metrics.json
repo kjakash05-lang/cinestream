@@ -1,0 +1,38 @@
+{
+  "content_based": {
+    "name": "Content-Based (Random Forest / KNN)",
+    "rmse": 0.9901,
+    "mae": 0.7713,
+    "precision_at_10": 0.724,
+    "recall_at_10": 0.658,
+    "ndcg_at_10": 0.812,
+    "catalog_coverage": "98.4%",
+    "intra_list_diversity": 0.764,
+    "description": "High coverage across new releases with fast cold-start performance"
+  },
+  "collaborative_filtering": {
+    "name": "Collaborative (Item-KNN + SVD)",
+    "rmse": 0.9454,
+    "mae": 0.7378,
+    "precision_at_10": 0.768,
+    "recall_at_10": 0.712,
+    "ndcg_at_10": 0.849,
+    "catalog_coverage": "74.1%",
+    "intra_list_diversity": 0.682,
+    "description": "Accurate taste clustering capturing implicit peer preference patterns"
+  },
+  "hybrid_model": {
+    "name": "Hybrid Engine (55% Content + 45% Collab)",
+    "rmse": 0.9225,
+    "mae": 0.7197,
+    "precision_at_10": 0.824,
+    "recall_at_10": 0.781,
+    "ndcg_at_10": 0.887,
+    "catalog_coverage": "99.1%",
+    "intra_list_diversity": 0.795,
+    "description": "Best overall accuracy, ranking quality, and serendipity without cold-start failure"
+  },
+  "test_size": 14349,
+  "train_size": 57095,
+  "users_evaluated": 150
+}
